@@ -1,0 +1,7 @@
+:root{
+    --main-white-color: #ffffff;
+}
+
+nav{
+    background-color: var(--main-white-color);
+}

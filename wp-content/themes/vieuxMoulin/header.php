@@ -11,6 +11,7 @@
     <meta name="description" content="site web client fait sur wordpresse sur le vieux moulin de starichamps ">
     <meta name="keywords" content="DW, Projet-web, Julien, Vieux moulin, formation hepl, "/>
     <meta name="author" content="Julien Gaspar"/>
+    <link rel="stylesheet" href="./src/css/header.css">
     <title>Header</title>
 </head>
 <body>
