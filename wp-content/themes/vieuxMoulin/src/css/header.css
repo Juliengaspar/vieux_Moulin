@@ -1,7 +1,37 @@
 :root{
     --main-white-color: #ffffff;
 }
+body{
+    background-color: white;
+    font-size: 16px;
+}
 
-nav{
+.header__nav{
     background-color: var(--main-white-color);
+    width: 100%;
+}
+li{
+    display: inline-block;
+    font-family: Caveat;
+    font-size: 3rem;
+    text-decoration: none;
+    margin-left: 5%;
+    margin-top: 5%;
+    align-items: baseline;
+}
+.rediretion>img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+label{
+}
+select{
+    font-family: Caveat;
+    background-color: white;
+    border: none;
+    font-size: 3rem;
+    text-decoration: none;
 }

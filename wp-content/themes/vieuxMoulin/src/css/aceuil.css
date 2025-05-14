@@ -1,0 +1,47 @@
+body{
+    background-color: white;
+    font-size: 16px;
+
+}
+
+.header__title{
+    background-color: #BDFAEA;
+    margin: auto;
+}
+.header__title>h1{
+    font-family: Helvetica;
+    font-style: italic;
+    text-align: center;
+    font-size: 3rem;
+    color: black;
+    text-shadow: 5px 5px 4px rgba(47,109,236,0.6);
+}
+.header__title>p{
+    font-size: 2.5rem;
+    width: 30%;
+    color: #013BB3;
+    margin: 5% 40%;
+    height: auto;
+}
+.header__title>img{
+    margin-left: 70%;
+    margin-top: -20%;
+}
+
+.img__vieuxMoulin>img{
+    width: 100%;
+    height: auto;
+}
+
+.contenu__vieuxMoulin{
+    margin: 5%;
+}
+
+.contenu__vieuxMoulin>div{
+    display: flex;
+}
+.contenu__vieuxMoulin>h2{
+    font-size: 2rem;
+    font-style: italic;
+    text-align: center;
+}
