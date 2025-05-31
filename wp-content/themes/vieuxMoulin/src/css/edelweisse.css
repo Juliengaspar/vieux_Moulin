@@ -1,0 +1,82 @@
+body{
+    background-color: white;
+    font-size: 16px;
+}
+a{
+    cursor: pointer;
+}
+header{
+    background-color: #BDFAEA;
+    color: black;
+    text-align: center;
+}
+h1{
+    font-size: 3rem;
+}
+
+.edelweiss{
+    width: 40%;
+    height: auto;
+    margin: 5%;
+}
+
+.info__edelweiss>h2{
+    font-size: 2.5rem;
+    margin: 2% 10%;
+}
+.info__edelweiss>p{
+    width: 80%;
+    margin: 2% 10%;
+}
+
+.contacte__edelweisse{
+    margin: 5%;
+}
+
+.contacte__edelweisse>h3{
+    font-size: 2.5rem;
+    margin:  5%;
+}
+
+.contacte__edelweisse>p{
+    width: 30%;
+    font-size: 1rem;
+    margin-bottom: 1%;
+    line-height: 2.5vh;
+    margin-left: 5%;
+}
+
+.contacte__edelweisse>a{
+    padding: 1rem 0.5rem;
+    background-color: #0466F3;
+    color: white;
+    margin: 2% 5%;
+}
+.maps{
+
+}
+.maps>img{
+    width: 80%;
+    margin: 1% 10%;
+    height: auto;
+}
+.maps>a{
+    background-color: #0466F3;
+    color: white;
+    margin: 20% 10%;
+    padding: 0.5rem 1rem;
+}
+.galerie__picture{
+    margin: 10%;
+}
+.galerie__picture>h2{
+    margin: 2.5% 5% ;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.rediretion{
+    background-color: #0466F3;
+    color: white;
+    padding:  1.5rem;
+    margin: 5%;
+}

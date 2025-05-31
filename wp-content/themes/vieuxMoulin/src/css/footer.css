@@ -1,0 +1,68 @@
+footer{
+    font-family: cavea, 'arial',sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+}
+.logo__partenaire{
+    width: 20%;
+    height: auto;
+}
+.mini__logo__srg{
+    width: 5%;
+    height: auto;
+}
+.footer__navigations{
+    display: flex;
+    padding: 2rem;
+
+}
+.coordonees{
+
+}
+
+.navigation{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap:5rem;
+}
+.logo__vieux__moulin{
+    width: 10%;
+    height: 5%;
+}
+
+h3{
+    font-size: 3rem;
+    margin: 0;
+}
+.navigation > ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.navigation ul li {
+
+}
+.partenaires>h3{
+    margin-left: 5%;
+}
+.logo__partenaire{
+    margin-left: 5%;
+}
+#federation__walonnie__bruxelle{
+    margin-bottom: 5%;
+}
+.fotter__copyrinthe{
+    background-color: #BDFAEA;
+    color: #000000;
+    display: flex;
+    padding: 1rem;
+}
+.fotter__copyrinthe>h2{
+    margin: 2.5% 1%;
+}
+.fotter__copyrinthe>img{
+    width: 5%;
+    height: auto;
+    margin-left: 60%;
+
+}

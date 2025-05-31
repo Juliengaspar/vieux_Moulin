@@ -1,47 +1,59 @@
 body{
     background-color: white;
-    font-size: 16px;
-
 }
-
-.header__title{
+header{
     background-color: #BDFAEA;
-    margin: auto;
-}
-.header__title>h1{
-    font-family: Helvetica;
-    font-style: italic;
     text-align: center;
+    margin: 5% 0;
+}
+header>h1{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 2% 0;
     font-size: 3rem;
-    color: black;
-    text-shadow: 5px 5px 4px rgba(47,109,236,0.6);
 }
-.header__title>p{
-    font-size: 2.5rem;
+header>p{
+    text-align: center;
     width: 30%;
-    color: #013BB3;
-    margin: 5% 40%;
-    height: auto;
+    margin: 5% 35% 0;
+    padding: 2% 0;
+    font-size: 2.5rem;
 }
-.header__title>img{
-    margin-left: 70%;
-    margin-top: -20%;
+header>p:last-of-type{
+    margin-top: 1%;
 }
-
-.img__vieuxMoulin>img{
-    width: 100%;
-    height: auto;
-}
-
-.contenu__vieuxMoulin{
-    margin: 5%;
+h2{
+    text-align: center;
+    font-size: 2rem;
+    width: 50%;
+    margin: 0 25%;
 }
 
-.contenu__vieuxMoulin>div{
+h3{
+    font-size: 1.5rem;
+}
+
+
+.about__vieux__moulin>div:first-of-type,
+.about__vieux__moulin>a{
+    margin-left: 75%;
+    margin-right: 5%;
+}
+.about__vieux__moulin>div>p{
+    margin-bottom: 2%;
+}
+
+
+.about__vieux__moulin>div>a{
+    background-color: #006EFE;
+    color: white;
+    padding: 1% 2%;
+}
+
+.valeurs__vieux__moulin{
     display: flex;
 }
-.contenu__vieuxMoulin>h2{
-    font-size: 2rem;
-    font-style: italic;
-    text-align: center;
+.valeurs__vieux__moulin>p{
+    width: 25%;
+    margin: 0 5% 0 70%;
 }

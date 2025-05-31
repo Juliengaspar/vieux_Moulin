@@ -1,0 +1,103 @@
+body{
+    background-color: white;
+    font-size: 16px;
+    font-family: Helvetica;
+}
+a{
+    cursor: pointer;
+}
+header{
+    background-color: #BDFAEA;
+    color: black;
+    text-align: center;
+    height: 50%;
+}
+.title__page>h1{
+    font-family: "cavea";
+
+    font-size: 3rem;
+    margin: 5% 0;
+}
+.title__page>p{
+    font-family: "cavea";
+    font-style: italic;
+    font-size: 2.5rem;
+    width: 30%;
+    margin: 5% 35%;
+    color: #013BB3;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+.valeurs__vieux__moulin{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.contenus__espace__enfants{
+    grid-column: 2;
+    margin-top: 10%;
+}
+.contenus__espace__enfants>h2{
+    margin-bottom: 5%;
+}
+.contenus__espace__enfants>p{
+    margin: 5% 0;
+    line-height: 2.5vh;
+}
+.rediretion{
+    background-color: #0466F3;
+    color: white;
+    padding:  1.5rem;
+    margin: 5% 0;
+}
+
+.img__rotate__autours{
+    grid-column: 1;
+}
+.img__rotate__autours{
+    margin-top: -30%;
+
+}
+
+.valeurs{
+    margin: 5%;
+}
+.valeurs>h2{
+    text-align: center;
+    margin: 5% 0;
+}
+
+.valeur{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.valeur>h3{
+    grid-column: 2;
+    margin-left: 25%;
+}
+.valeur>p{
+    margin-left: 25%;
+    grid-column: 2;
+    width: 50%;
+}
+
+.valeur__img{
+    grid-column: 1;
+}
+
+.valeur__img>img{
+    width: 50%;
+    height: auto;
+}
+.valeur__img>img{
+    margin-top: -25%;
+
+}
+h2:last-of-type{
+    font-style: italic;
+    text-align: center;
+    width: 75%;
+    margin: 0 15%;
+}

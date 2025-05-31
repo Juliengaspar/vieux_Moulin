@@ -1,0 +1,81 @@
+body{
+    margin: 5%;
+    background-color: white;
+    font-family: Helvetica;
+}
+
+a{
+    color: black;
+    cursor: pointer;
+    margin: 2% 0;
+}
+
+.header__projet__educatif{
+    background-color: #BDFAEA;
+}
+h1{
+    text-align: center;
+    font-size: 3rem;
+    margin: 5% 0;
+    font-family: cavea;
+}
+.header__projet__educatif>img{
+    align-items: center;
+    margin: 0 25%;
+}
+
+h2{
+    font-size: 2.5rem;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    font-family: cavea;
+}
+.organisation__regles>p{
+    font-size: 2rem;
+    margin-bottom: 5%;
+}
+.organisation__regles>ul{
+    font-size: 1rem;
+}
+.liste__organisation__regles>li>span{
+    text-align: right;
+}
+.chapitre__regles,
+.sous__chapitre__regles{
+    margin-bottom: 1%;
+
+}
+.sous__chapitre__regles{
+    margin-left: 5%;
+}
+.sous__chapitre__regles::before{
+    content: "-";
+}
+.file__telechargement{
+    background-color: #0466F3;
+    padding: 1%;
+    color: white;
+    margin: 5%;
+}
+.partenariats{
+    margin:  0 25%;
+}
+.partenariats>h2{
+    text-align: center;
+}
+.partenariats>img{
+    margin: 0 25%;
+}
+.liste__logo__partenariats{
+    display: inline;
+}
+.logo__partenariat{
+    width: 30%;
+    height: auto;
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.logo__partenariats{
+    margin: 5% 0;
+}

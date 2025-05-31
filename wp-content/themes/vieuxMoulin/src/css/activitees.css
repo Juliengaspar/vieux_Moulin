@@ -1,0 +1,100 @@
+body{
+    background-color: white;
+    font-size: 16px;
+    font-family: Helvetica;
+}
+
+
+a{
+    cursor: pointer;
+}
+header{
+    overflow: hidden;/*pour que le balon vas du bas jus'aux haut dans le header*/
+    position: relative;
+    background-color: #BDFAEA;
+    color: black;
+    text-align: center;
+    /*height: auto;*/
+    height: 100vh;
+    margin: 0;
+}
+#ballon {
+    width: 2%;
+    height: auto;
+    position: absolute;
+    bottom: -100px; /* commence en dehors de l'écran */
+    left: 50vw; /* centré horizontalement */
+    transform: translateX(-50%);
+    animation: monter 5s linear forwards;
+}
+
+@keyframes monter {
+    from {
+        transform: translateX(-50%) translateY(0);
+    }
+    to {
+        transform: translateX(-50%) translateY(-120vh);
+    }
+}
+.title__page>h1{
+    font-family: "cavea";
+    font-size: 3rem;
+    padding: 1%;
+}
+
+h2{
+}
+
+.activitees{
+    margin: 5% 0;
+}
+
+.activitees>h2{
+    margin: 5% 25%;
+    font-size: 2rem;
+}
+.activitees>p{
+    width: 50%;
+    margin: 2.5% 25%;
+}
+
+.activitee{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.activitee>h3{
+    grid-column: 2;
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: 75%;
+    margin-left: -45%;
+}
+.activitee>p{
+    grid-column: 2;
+    font-size: 1rem;
+    font-weight: 200;
+    width: 75%;
+    margin-left: -45%;
+}
+.activitee>img{
+    grid-column: 1;
+    margin: 5% 0 0 10%;
+}
+
+
+.exemple__of__activitee{
+    width: 30%;
+    height: auto;
+}
+
+.redirection{
+    background-color: #0466F3;
+    border-radius: 10px;
+    margin: 5% 2.5%;
+    padding: 1% 5%;
+    color: white;
+    box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.26);
+    -webkit-box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.26);
+    -moz-box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.26);
+}
