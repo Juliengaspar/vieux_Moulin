@@ -1,4 +1,8 @@
 <?php
+/*
+Template Name: Activités
+*/
+get_header();
 ?>
 
 <html lang="fr">
@@ -14,6 +18,9 @@
 </head>
 <body>
 <header class="title__page">
+    <h1>Activités</h1>
+    <img src="<?php the_field('icone__activitee'); ?>">
+    <p style="margin-top: 20px;">↓ scroll ↓</p>
     <div id="balloon-div">
         <div class="svg__content">
             <div id="ballon__creation"></div>
@@ -33,13 +40,31 @@
         </div>
 
     </div>
-    <h1>Nos activités</h1>
-    <img src="./src/img/activitées-img.png" class="img__icone__Acitivitee">
 </header>
 <section class="activitees">
     <h2>Viens découvrir tout ce qu’on fait au Vieux Moulin </h2>
-    <p>Découvrez sur cette page une sélection d’activités et d’événements organisés
-        avec les jeunes au Vieux Moulin pour partager de bons moments.</p>
+    <!--<p>Découvrez sur cette page une sélection d’activités et d’événements organisés
+        avec les jeunes au Vieux Moulin pour partager de bons moments.</p>-->
+    <p>
+        <?php
+            get_field("description__page__activitee");
+        ?>
+    </p>
+
+	<?php if (have_rows('activites')): ?>
+        <section class="activitee" style="max-width: 1000px; margin: auto; padding: 20px;">
+			<?php while (have_rows('activites')): the_row(); ?>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 40px; gap: 20px;">
+                    <img class="exemple__of__activitee" src="<?php the_sub_field('image'); ?>" alt="" style="width: 150px; height: auto;">
+                    <div>
+                        <h3><?php the_sub_field('title__activitee'); ?></h3>
+                        <p><?php the_sub_field('description'); ?></p>
+                    </div>
+                </div>
+			<?php endwhile; ?>
+        </section>
+	<?php endif; ?>
+<!--
     <section class="activitee">
         <h3>🎵En avant la musique !</h3>
         <p>Tu aimes la musique ? Des bénévoles viennent spécialement pour t’aider à découvrir la musique et peut-être même te donner envie d’en faire plus tard !</p>
@@ -53,11 +78,26 @@
         <div>
             <img src="./src/img/img-rotate.png" class="exemple__of__activitee">
         </div>
-    </section>
+    </section>-->
 </section>
 <section class="activitees">
     <h2>Des sorties Incroyables pour s’amuser</h2>
     <p>Aux Vieux Moulins, on part en excursion pour découvrir de nouveaux endroits et passer des journées inoubliables !</p>
+    <!-- VOYAGES (RÉPÉTEUR) -->
+	<?php if (have_rows('voyages')): ?>
+        <section style="max-width: 1000px; margin: auto; padding: 20px;">
+			<?php while (have_rows('voyages')): the_row(); ?>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 40px; gap: 20px;">
+                    <img src="<?php the_sub_field('picture_voyage'); ?>" alt="" style="width: 150px; height: auto;">
+                    <div>
+                        <h3><?php the_sub_field('title_voyage'); ?></h3>
+                        <p><?php the_sub_field('description_voyage'); ?></p>
+                    </div>
+                </div>
+			<?php endwhile; ?>
+        </section>
+	<?php endif; ?>
+    <!--
     <section class="activitee">
         <h3> 🎡Au Parc Merveilleux</h3>
         <p>on rencontre des animaux, on joue et on explore un monde magique.</p>
@@ -72,7 +112,7 @@
             <img src="./src/img/img-rotate.png" class="exemple__of__activitee">
         </div>
     </section>
-    <section class="activitee">
+    <section class="activitee">-
         <h3>🚶Des balades pour explorer ! </h3>
         <p>On adore partir en balade pour découvrir la nature, respirer le grand air et profiter d’un moment avec les copains.!</p>
         <div>
@@ -85,9 +125,9 @@
         <div>
             <img src="./src/img/img-rotate.png" class="exemple__of__activitee">
         </div>
-    </section>
+    </section>-->
 </section>
-<a class="redirection">Nous aider à faire plus d’activités</a>
-
+<a href="<?php get_field("link__button")?>" class="redirection">Nous aider à faire plus d’activités</a>
+<?php get_footer(); ?>
 </body>
 </html>
