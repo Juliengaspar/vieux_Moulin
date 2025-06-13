@@ -23,7 +23,8 @@ get_header();
 <header class="header">
     <h1>Offrez un avenir meilleur aux enfants!</h1>
     <img src="<?php the_field("picture__icons__dons") ?>" alt="coeur degrader de orange sur une une main de profile">
-    <div>Scrool</div>
+	<?php get_template_part('partials/scroll'); ?>
+
 </header>
 <section class="dons">
     <h2></h2>
@@ -58,7 +59,7 @@ get_header();
     <section class="dons__numero__cart">
         <section class="dons__info">
             <h3>Nom</h3>
-            <p><?php the_field("number__conte__dons"); ?></p>
+            <p><?php the_field("number__name__dons"); ?></p>
         </section>
         <section class="dons__info">
             <h3>Communications</h3>

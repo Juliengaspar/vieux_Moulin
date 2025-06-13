@@ -5,15 +5,21 @@ Template Name: Activités
 get_header();
 ?>
 
+<?php
+echo '<!-- fichier.php chargé -->';
+?>
+
+<?php if (!defined('ABSPATH')) exit; ?>
+<p>Fichier bien chargé</p>
+
+
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="../css/reset.css">
 	 <link rel="stylesheet" href="../css/activitees.css">
     <!--<link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./index.css">-->
-    <script type="module" defer src="src/js/main.js"></script>
     <title>Activités</title>
 </head>
 <body>
@@ -40,6 +46,7 @@ get_header();
         </div>
 
     </div>
+	<?php get_template_part('partials/scroll'); ?>
 </header>
 <section class="activitees">
     <h2>Viens découvrir tout ce qu’on fait au Vieux Moulin </h2>
@@ -51,18 +58,21 @@ get_header();
         ?>
     </p>
 
-	<?php if (have_rows('activites')): ?>
-        <section class="activitee" style="max-width: 1000px; margin: auto; padding: 20px;">
-			<?php while (have_rows('activites')): the_row(); ?>
-                <div style="display: flex; align-items: flex-start; margin-bottom: 40px; gap: 20px;">
-                    <img class="exemple__of__activitee" src="<?php the_sub_field('image'); ?>" alt="" style="width: 150px; height: auto;">
+	<?php if (have_rows('activites')) : ?>
+        <section class="liste__projets" style="max-width: 1000px; margin: auto; padding: 20px;">
+			<?php while (have_rows('activites')) : the_row(); ?>
+                <article class="projet">
                     <div>
-                        <h3><?php the_sub_field('title__activitee'); ?></h3>
-                        <p><?php the_sub_field('description'); ?></p>
+                    <img src="<?php the_sub_field('image-activitee'); ?>" alt="">
+
                     </div>
-                </div>
+                    <h3><?php the_sub_field('title__activitee'); ?></h3>
+                    <p><?php the_sub_field('description-actvitee'); ?></p>
+                </article>
 			<?php endwhile; ?>
         </section>
+	<?php else : ?>
+        <p>Aucun projet n’a été ajouté.</p>
 	<?php endif; ?>
 <!--
     <section class="activitee">

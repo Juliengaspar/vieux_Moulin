@@ -23,7 +23,8 @@ get_header();
 <header class="header__projet__educatif">
     <h1 class="titile__page">Projet éducatif</h1>
     <img src="<?php get_field("icone__projet__educatif") ?>" alt="img representant un arbre fait de different main de different couleur sur chaque branche entour s'un demis cercle noires">
-    <p style="margin-top: 20px;">↓ scroll ↓</p>
+	<?php get_template_part('partials/scroll'); ?>
+
 </header>
 <section class="organisation__regles">
     <h2>Le Vieux Moulin SRG&nbsp;</h2>

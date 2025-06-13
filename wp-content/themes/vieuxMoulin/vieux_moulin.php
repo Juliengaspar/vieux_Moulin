@@ -4,27 +4,21 @@ Template Name: vieux_moulin
 */
 get_header();
 ?>
+	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premiers pages aceuille du projet clien vieux moulin fait avec woordpresse ">
-    <meta name="keywords" content="clien, Projet-web, Julien, woordpresse, formation hepl, vieux moulin"/>
-    <meta name="author" content="Julien Gaspar"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="../image/icones/vieux__moulin__icone__small.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../image/icones/vieux__moulin__icone__medium.png">
-    <link rel="icon" type="image/png" sizes="162x162" href="../image/icones/vieux__moulin__icone__large.png">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/vieuxMoulin.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>../css/reset.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>../css/vieuxMoulin.css">
     <title>Vieux Moulin</title>
 </head>
 <body>
 <header>
+
     <h1>Le Vieux Moulin</h1>
     <!--<img src="./src/img/maison__vieux__moulin.jpg" alt="vue de la maison de vieux moulin" class="vieux__moulin">-->
     <img src="<?php the_field('picture__vieux__moulin__home'); ?>" alt="vue de la maison de vieux moulin" class="vieux__moulin">
+	<?php get_template_part('partials/scroll'); ?>
 
 </header>
 <section class="info__vieux__moulin">
@@ -41,7 +35,7 @@ get_header();
         <a>Nous envoyer un message</a>
         <img src="">-->
 	<p>
-        <?php the_field('contact__dirrecteur'); ?>
+        <?php the_field('contact__directeur'); ?>
     </p>
     <p>Email:
         <?php the_field('email__redirection__direction'); ?>
@@ -54,7 +48,7 @@ get_header();
     </section>
 </section>
 <section class="maps">
-    <h2>Titre invible</h2>
+    <h2 class="sr-only">Titre invible</h2>
     <!--<img src="./src/img/carte__vieux__moulin.png" class="carte" alt="carte qui montre le vieux moulin">
     <a lang="fr" href="https://www.google.be/maps/place/Strainchamps+1,+6637+Fauvillers/@49.8761339,5.6751361,17z/data=!3m1!4b1!4m5!3m4!1s0x47eaa07e4546d339:0x197c28fdda915cae!8m2!3d49.8761305!4d5.677711?entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D">Voir sur maps</a>-->
         <img src="<?php the_field('carte__vieux__moulin'); ?>" alt="representation d'un plan qui represente la ville du vieux__moulin" class="carte__vieux__moulin">
@@ -85,15 +79,21 @@ get_header();
     <!--<div>
         <img src="">
     </div>-->
-    <div>
-		<?php
-		$galeries__pieces = get_field('interrieur__home__animation');
-		if ($galeries__pieces):
-			foreach ($galeries__pieces as $galerie__piece): ?>
-                <img src="<?php echo $galerie__piece['url']; ?>" alt="<?php echo $galerie__piece['alt']; ?>">
-			<?php endforeach;
-		endif;
-		?>
+    <div class="slider-container">
+        <div class="slider-track">
+			<?php
+			$images = get_field('interrieur__home__animation');
+			if( $images ):
+				// On double la boucle pour faire l'effet d'infini
+				for ($i = 0; $i < 2; $i++):
+					foreach( $images as $image ): ?>
+                        <div class="slider-image">
+                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                        </div>
+					<?php endforeach;
+				endfor;
+			endif; ?>
+        </div>
     </div>
     <!--<p >Le jeu ouvre toutes les portes. Pour un professionnel, il constitue la plus belle fenêtre d’observation de l’état psychique d’un enfant. Le jeu est aussi un moyen privilégié d’entrer en relation avec l’enfant, en particulier lorsque le lien avec l’adulte est fragile ou rompu.</p>-->
     <p>
@@ -125,5 +125,11 @@ get_header();
     <a href="<?php the_field('redirection__Edelweiss__page'); ?>" class="button">Aller vers Edelweiss</a>
     </div>
 </section>
+<?php
+endwhile;
+endif;
+get_footer();
+
+?>
 </body>
 </html>

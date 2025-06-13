@@ -1,17 +1,21 @@
 <?php
+/*
+Template Name: header
+*/
 ?>
 
 <!doctype HTML>
 <html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible"
-	      content="ie=edge">
-	<meta name="description" content="site web client fait sur wordpresse sur le vieux moulin de starichamps ">
-	<meta name="keywords" content="DW, Projet-web, Julien, Vieux moulin, formation hepl, "/>
-	<meta name="author" content="Julien Gaspar"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premiers pages aceuille du projet clien vieux moulin fait avec woordpresse ">
+    <meta name="keywords" content="clien, Projet-web, Julien, woordpresse, formation hepl, vieux moulin"/>
+    <meta name="author" content="Julien Gaspar"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="./src/image/icones/vieux__moulin__icone__small.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./src/image/icones/vieux__moulin__icone__medium.png">
+    <link rel="icon" type="image/png" sizes="162x162" href="./src/image/icones/vieux__moulin__icone__large.png">
 	<link rel="stylesheet" href="./src/css/reset.css">
 	<link rel="stylesheet" href="./src/css/header.css">
 	<title>header</title>
@@ -46,10 +50,10 @@
 			<label for="Vieux__Moulin__redirection"></label>
                 <select id="Vieux__Moulin__redirection" onchange="if(this.value) window.location.href=this.value;">
                     <option value="<?php echo esc_url(home_url('/qui sommes-nous')); ?>">qui sommes-nous</option>
-                    <option value="<?php echo esc_url(home_url('/maisons')); ?>">Maisons</option>
-                    <option value="<?php echo esc_url(home_url('/valeurs')); ?>">Valeurs</option>
+                    <option value="<?php echo esc_url(home_url('/etablisement')); ?>">Maisons</option>
+                    <option value="<?php echo esc_url(home_url('/nos_valeurs')); ?>">Valeurs</option>
                     <option value="<?php echo esc_url(home_url('/activites')); ?>">Activités</option>
-                    <option value="<?php echo esc_url(home_url('/educatif')); ?>">Educatif</option>
+                    <option value="<?php echo esc_url(home_url('/Administratif')); ?>">Educatif</option>
                 </select>
 			<?php endif; ?>
 

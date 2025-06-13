@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: nos_valeurs
+Template Name: Nos Valeurs
 */
 get_header();
 ?>
@@ -20,13 +20,15 @@ get_header();
     <title>Nos Valeurs</title>
 </head>
 <body>
-<header class="class="title__valeurs" style="text-align: center; padding: 50px;"">
+<header class="title__valeurs" style="text-align: center; padding: 50px;"">
     <h1>Nos valeurs</h1>
         <p><?php the_field('text__page'); ?></p>
     <!--<p>Le Vieux Moulin est un service résidentiel général agréé par la Fédération Wallonie-Bruxelles.&nbsp;</p>-->
-    <p>scroll</p>
+        <?php get_template_part('partials/scroll'); ?>
 </header>
 <section class="about__vieux__moulin" style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px; max-width: 1000px; margin: 50px auto;">
+	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
     <h2>Titre</h2>
     <div class="image" style="flex: 1;">
         <img src="<?php the_field('picture__parc'); ?>" alt="Image principale">
@@ -41,7 +43,9 @@ get_header();
     </div>-->
     <div class="text" style="flex: 1;">
         <p><?php the_field('autours__vieux__moulin'); ?></p>
-        <a href="<?php the_field('link__page'); ?>" class="button">La vie au Vieux Moulin</a>
+	    <?php if (get_field('link__page')) : ?>
+            <a href="<?php the_field('link__page'); ?>" class="button">La vie au Vieux Moulin</a>
+	    <?php endif; ?>
     </div>
 </section>
 <section>
@@ -49,16 +53,16 @@ get_header();
     <h2><?php the_field('titles__of__contenus'); ?></h2>
     <!-- Sections dynamiques avec champ répéteur -->
     <section class="valeurs__vieux__moulin" style="max-width: 1000px; margin: 60px auto;">
-		<?php if (have_rows('blocs_dynamiques')): ?>
-			<?php while (have_rows('blocs_dynamiques')): the_row(); ?>
+		<?php if (have_rows('valeurs')): ?>
+			<?php while (have_rows('valeurs')): the_row(); ?>
                 <div class="bloc" style="margin-bottom: 50px;">
-                    <h3><?php the_sub_field('titre_du_bloc'); ?></h3>
+                    <h3><?php the_sub_field('valeurs_title'); ?></h3>
                     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px;">
                         <div class="image" style="flex: 1;">
-                            <img src="<?php the_sub_field('image_du_bloc'); ?>" alt="Bloc image" style="width: 100%;">
+                            <img src="<?php the_sub_field('valeurs_image'); ?>" alt="Bloc image" style="width: 100%;">
                         </div>
                         <div class="texte" style="flex: 1;">
-                            <p><?php the_sub_field('texte_long_du_bloc'); ?></p>
+                            <p><?php the_sub_field('description_valeurs'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -93,6 +97,10 @@ get_header();
     <!--<h2>La qualité de nos infrastructures, l’équipement mis à disposition, l’épanouissement de chacun sont au cœur de ses préoccupations.</h2>-->
     <h2><?php the_field('text__end__page'); ?></h2>
 </section>
-<?php get_footer(); ?>
+<?php
+endwhile;
+endif;
+get_footer();
+?>
 </body>
 </html>

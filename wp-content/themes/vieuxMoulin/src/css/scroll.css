@@ -1,0 +1,19 @@
+.scroll-indicator {
+    text-align: center;
+    margin: 20px auto;
+    animation: bounce 2s infinite;
+}
+.scroll-svg {
+    width: 50px;
+    height: auto;
+}
+.scroll-text {
+    color: #3366cc;
+    font-weight: bold;
+    margin-top: 5px;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+

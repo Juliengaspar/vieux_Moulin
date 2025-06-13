@@ -7,15 +7,6 @@ get_header();
 
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premiers pages aceuille du projet clien vieux moulin fait avec woordpresse ">
-    <meta name="keywords" content="clien, Projet-web, Julien, woordpresse, formation hepl, vieux moulin"/>
-    <meta name="author" content="Julien Gaspar"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="../image/icones/vieux__moulin__icone__small.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../image/icones/vieux__moulin__icone__medium.png">
-    <link rel="icon" type="image/png" sizes="162x162" href="../image/icones/vieux__moulin__icone__large.png">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/contact.css">
     <title>Contacte</title>
@@ -24,6 +15,8 @@ get_header();
 <header>
     <h1>Contacter</h1>
     <img src="<?php get_field("icone__contact__directeur") ?>">
+	<?php get_template_part('partials/scroll'); ?>
+
 </header>
 <section class="coordonnee__info">
     <h2>Coordonnés</h2>
@@ -38,10 +31,13 @@ get_header();
         <?php get_field("info__contact__direction") ?>
     </p>
     <p>
-        Directeur : ​SCHMIT Jean-François<?php get_field("mail__direction") ?>GSM : 0488/774.850
+        emai:<?php get_field("email__direction") ?>
     </p>
     <p>
-        <?php get_field("name__coordirnatrice") ?>
+        Directeur:<?php get_field("name__dirrecteur") ?>
+    </p>
+    <p>
+        Coordinatrice:<?php get_field("name__coordinatrice") ?>
     </p>
     <!--<p>Téléphone : ​063/60.11.50
         Fax : ​​063/60.22.37

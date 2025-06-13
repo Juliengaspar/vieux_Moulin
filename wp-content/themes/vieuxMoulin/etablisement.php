@@ -6,59 +6,38 @@ get_header();
 ?>
 <html lang="fr-be">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premiers pages aceuille du projet clien vieux moulin fait avec woordpresse ">
-    <meta name="keywords" content="clien, Projet-web, Julien, woordpresse, formation hepl, vieux moulin"/>
-    <meta name="author" content="Julien Gaspar"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="../image/icones/vieux__moulin__icone__small.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../image/icones/vieux__moulin__icone__medium.png">
-    <link rel="icon" type="image/png" sizes="162x162" href="../image/icones/vieux__moulin__icone__large.png">
+
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/etablisement.css">
 	<title>etablisement</title>
 </head>
 <body>
 <header style="background: url('<?php the_field('etablisements__header__background'); ?>') center/cover no-repeat; padding: 100px 20px; color: white; text-align: center;">
-	<section class="header__page">
+	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+    <section class="header__page" style="background: url('<?php the_field('etablisements__header__background'); ?>') center/cover no-repeat;">
 		<h2 class="header__title">
 			Nos maisons
 		</h2>
 		<!--<p>Le Vieux Moulin ou  Edelweiss  </p>-->
         <p style="max-width: 800px; margin: auto;"><?php the_field('text__of__page'); ?></p>
-        <div>scroll</div>
-	</section>
+	    <?php get_template_part('partials/scroll'); ?>
+
+    </section>
 </header>
 <section class="etablisments">
-	<section class="etalisement">
-		<h2>Edelweiss</h2>
-		<section>
-			<h3>Coordonées</h3>
-            <ul>
-                <li></li>
-            </ul>
-		</section>
-		<section>
-			<h3>Contact</h3>
-            <ul>
-                <li></li>
-            </ul>
-		</section>
-		<a></a>
-	    </section>
         <!-- EDELWEISS -->
 		<section class="etalisement">
-		<h2>EDELWEISS</h2>
+		    <h2>EDELWEISS</h2>
             <img src="<?php the_field('image_ew'); ?>" alt="Image Vieux Moulin" style="width: 100%; max-width: 600px;">
 			<section>
             <h3>Coordonées</h3>
             <ul>
                 <li> <?php the_field('coordonnee_ew'); ?></li>
-                <li><a><?php the_field('email_ew'); ?></a></li>
+                <li>Email:<a><?php the_field('email_ew'); ?></a></li>
                 <li><a href="<?php the_field('facebook_ew'); ?>" target="_blank">Suivez la page Facebookk</a></li>
             </ul>
-            </section>
+        </section>
 
 		<section>
 			<h3>Contact</h3>
@@ -83,7 +62,7 @@ get_header();
 
                 <h3>Contact</h3>
                 <p><?php the_field('name_directeur_vm'); ?></p>
-                <p><a href="mailto:<?php the_field('email_directeur_vm'); ?>"></a></p>
+                <p>Email:<a href="mailto:<?php the_field('email_directeur_vm'); ?>"></a></p>
 
                 <a href="<?php the_field('lien_page_vm'); ?>" class="button" style="display: inline-block; padding: 10px 20px; background: #444; color: white; text-decoration: none; margin-top: 20px;">Edelweiss</a>
             </section>
@@ -91,6 +70,10 @@ get_header();
         </section>
 
 </section>
-
+<?php
+endwhile;
+endif;
+get_footer();
+?>
 </body>
 </html>
