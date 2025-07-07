@@ -1,9 +1,5 @@
-<?php
-/*
-Template Name: Administration
-*/
-get_header();
-?>
+<?php /* Template name: Template "administration*/ ?>
+<?php get_header(); ?>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -22,20 +18,29 @@ get_header();
 <body>
 <header class="header__projet__educatif">
     <h1 class="titile__page">Projet éducatif</h1>
-    <img src="<?php get_field("icone__projet__educatif") ?>" alt="img representant un arbre fait de different main de different couleur sur chaque branche entour s'un demis cercle noires">
-	<?php get_template_part('partials/scroll'); ?>
+    <!-- Image d'introduction -->
+	<?php
+	$image_administrations = get_field('icone__projet__educatif');
+	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	if ($image_administrations) :
+		?>
+        <div class="icone__projet__educatif">
+            <img src="<?php echo esc_url($image_administrations['url']); ?>" alt="<?php echo esc_attr($image_administrations['alt']); ?>">
+        </div>
+	<?php endif; ?>
+    <?php get_template_part('partials/scroll'); ?>
 
 </header>
 <section class="organisation__regles">
-    <h2>Le Vieux Moulin SRG&nbsp;</h2>
     <!--<p>Organisation, Fonctionnement et Vie Communautaire&nbsp;</p>-->
-    <p>
-        <?php  get_field("description__page") ?>
-    </p>
+
     <!-- SOMMAIRE -->
     <section style="max-width: 800px; margin: auto; padding: 40px 20px;">
         <h2><em>Le Vieux Moulin SRG</em></h2>
-        <p>Organisation, Fonctionnement et Vie Communautaire</p>
+        <p>
+		    <?php  get_field("description__page") ?>
+        </p>
         <ul style="list-style: none; padding-left: 0;">
 			<?php if (have_rows('sommaire')): ?>
 				<?php while (have_rows('sommaire')): the_row(); ?>
@@ -78,15 +83,50 @@ get_header();
 </section>
 <section class="partenariats">
     <h2 class="partenariats__title">Nos partenaires</h2>
-    <!--<img src="./src/img/icone-partenaria.png" alt="img representant 2 mais qui se sert">-->
-    <img src="<?php get_field("icone__partenaria")?>" alt="img representant 2 mais qui se sert">
+    <!--<image src="./src/image/icone-partenaria.png" alt="image representant 2 mais qui se sert">-->
+    <!-- Image d'introduction -->
+	<?php
+	$image_administrations_partenaria = get_field('icone__partenaria');
+	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	if ($image_administrations_partenaria) :
+		?>
+        <div class="icone__partenaria">
+            <img src="<?php echo esc_url($image_administrations_partenaria['url']); ?>" alt="<?php echo esc_attr($image_administrations_partenaria['alt']); ?>">
+        </div>
+	<?php endif; ?>
     <section class="logo__partenariats">
         <h3 class="logo__parteariats">Aide a la jeunesse</h3>
         <div class="liste__logo__partenariats">
-            <!--<img class="logo__partenariat" src="./src/img/aide-jeunesse-logo.png" alt="logo representant l'un des des partenaria qui les aides">
-            <img class="logo__partenariat" src="./src/img/logo-jeunesse.png" alt="logo representant l'un des des partenaria qui les aides">-->
+            <!--<image class="logo__partenariat" src="./src/image/aide-jeunesse-logo.png" alt="logo representant l'un des des partenaria qui les aides">
+            <image class="logo__partenariat" src="./src/image/logo-jeunesse.png" alt="logo representant l'un des des partenaria qui les aides">-->
             <img class="logo__partenariat" src="<?php get_field("logo__partenaria") ?>" alt="logo representant l'un des des partenaria qui les aides">
+            <!-- Image d'introduction -->
+	        <?php
+	        $image_administrations_logo_1 = get_field('logo__partenaria');
+	        // var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	        if ($image_administrations_logo_1) :
+		        ?>
+                <div class="image_administrations_logo_2">
+                    <img class="logo__partenariat" src="<?php echo esc_url($image_administrations_logo_1['url']); ?>" alt="<?php echo esc_attr($image_administrations_logo_1['alt']); ?>">
+                </div>
+	        <?php endif; ?>
+
+
             <img class="logo__partenariat" src="<?php get_field("logo__partenaria_2") ?>" alt="logo representant l'un des des partenaria qui les aides">
+            <!-- Image d'introduction -->
+	        <?php
+	        $image_administrations_logo_2 = get_field('logo__partenaria_2');
+	        // var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	        if ($image_administrations_logo_2) :
+		        ?>
+                <div class="logo__partenaria_2">
+                    <img class="logo__partenariat" src= "<?php echo esc_url($image_administrations_logo_2['url']); ?>" alt="<?php echo esc_attr($image_administrations_logo_2['alt']); ?>">
+                </div>
+	        <?php endif; ?>
+
         </div><!--
         <p>Services d'aide à la Jeunesse : le travail a repris - RTBF Actus</p>
         <a href="https://www.aidealajeunesse.cfwb.be/" hreflang="fr" lang="fr">Voire le site oficiel</a>-->

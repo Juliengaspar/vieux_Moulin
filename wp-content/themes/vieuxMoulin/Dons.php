@@ -1,9 +1,5 @@
-<?php
-/*
-Template Name: Dons
-*/
-get_header();
-?>
+<?php /* Template name: Template "dons*/ ?>
+<?php get_header(); ?>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +19,18 @@ get_header();
 <header class="header">
     <h1>Offrez un avenir meilleur aux enfants!</h1>
     <img src="<?php the_field("picture__icons__dons") ?>" alt="coeur degrader de orange sur une une main de profile">
-	<?php get_template_part('partials/scroll'); ?>
+    <!-- Image d'introduction -->
+	<?php
+	$image_dons = get_field('picture__icons__dons');
+	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	if ($image_dons) :
+		?>
+        <div class="picture__icons__dons">
+            <img class="images" src="<?php echo esc_url($image_dons['url']); ?>" alt="<?php echo esc_attr($image_dons['alt']); ?>">
+        </div>
+	<?php endif; ?>
+    <?php get_template_part('partials/scroll'); ?>
 
 </header>
 <section class="dons">
@@ -38,6 +45,17 @@ get_header();
             <?php the_field("exemple__dons__changement") ?>
         </p>
         <img src="<?php the_field("dons__img");?>" alt="velo__dons">
+        <!-- Image d'introduction -->
+	    <?php
+	    $image_dons_Exemple = get_field('dons__img');
+	    // var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	    if ($image_dons_Exemple) :
+		    ?>
+            <div class="dons__img">
+                <img class="images" src="<?php echo esc_url($image_dons_Exemple['url']); ?>" alt="<?php echo esc_attr($image_dons_Exemple['alt']); ?>">
+            </div>
+	    <?php endif; ?>
     </section>
     <section class="exemple__dons">
         <h3>1001 projets </h3>
@@ -51,7 +69,17 @@ get_header();
         <p>
             <?php  the_field("exemple__of__project"); ?>
         </p>
-        <img src=<?php the_field("projet__img");?>>
+        <!-- Image d'introduction -->
+	    <?php
+	    $image_projet_Exemple = get_field('projet__img');
+	    // var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	    if ($image_projet_Exemple) :
+		    ?>
+            <div class="projet__img">
+                <img class="images" src="<?php echo esc_url($image_projet_Exemple['url']); ?>" alt="<?php echo esc_attr($image_projet_Exemple['alt']); ?>">
+            </div>
+	    <?php endif; ?>
     </section>
 </section>
 <section class="coordonee__dons">

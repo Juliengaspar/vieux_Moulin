@@ -1,9 +1,5 @@
-<?php
-/*
-Template Name: Contacte
-*/
-get_header();
-?>
+<?php /* Template name: Template "contacte*/ ?>
+<?php get_header(); ?>
 
 <html lang="fr">
 <head>
@@ -14,7 +10,17 @@ get_header();
 <body>
 <header>
     <h1>Contacter</h1>
-    <img src="<?php get_field("icone__contact__directeur") ?>">
+    <!-- Image d'introduction -->
+	<?php
+	$image_contact = get_field('icone__contact__directeur');
+	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	if ($image_contact) :
+		?>
+        <div class="icone__contact__directeur">
+            <img class="images" src="<?php echo esc_url($image_contact['url']); ?>" alt="<?php echo esc_attr($image_contact['alt']); ?>">
+        </div>
+	<?php endif; ?>
 	<?php get_template_part('partials/scroll'); ?>
 
 </header>

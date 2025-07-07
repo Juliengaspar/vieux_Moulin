@@ -6,5 +6,5 @@
 			         values="20,30 50,70 80,30; 20,35 50,75 80,35; 20,30 50,70 80,30" />
 		</polygon>
 	</svg>
-	<p class="scroll-text">Faire défiler</p>
+	<p class="scroll-text">Scrool</p>
 </div>

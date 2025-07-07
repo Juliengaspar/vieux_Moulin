@@ -1,9 +1,5 @@
-<?php
-/*
-Template Name: Nos Valeurs
-*/
-get_header();
-?>
+<?php /* Template name: Template "nos-valeurs*/ ?>
+<?php get_header(); ?>
 <html lang="fr-be">
 <head>
     <meta charset="UTF-8">
@@ -23,16 +19,23 @@ get_header();
 <header class="title__valeurs" style="text-align: center; padding: 50px;"">
     <h1>Nos valeurs</h1>
         <p><?php the_field('text__page'); ?></p>
-    <!--<p>Le Vieux Moulin est un service résidentiel général agréé par la Fédération Wallonie-Bruxelles.&nbsp;</p>-->
+//    <!--<p>Le Vieux Moulin est un service résidentiel général agréé par la Fédération Wallonie-Bruxelles.&nbsp;</p>-->
         <?php get_template_part('partials/scroll'); ?>
 </header>
 <section class="about__vieux__moulin" style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px; max-width: 1000px; margin: 50px auto;">
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-    <h2>Titre</h2>
+    <h2>Titre invicible</h2>
+	<?php
+	$image__parc = get_field('picture__parc');
+	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	if ($image__parc) :
+		?>
     <div class="image" style="flex: 1;">
-        <img src="<?php the_field('picture__parc'); ?>" alt="Image principale">
+            <img class="logo__partenaire" id="aide__a__la__jeunesse" src="<?php echo esc_url($image__parc['url']); ?>" alt="<?php echo esc_attr($image__parc['alt']); ?>">
     </div>
+	<?php endif; ?>
     <!--<div>
         <p>Au Vieux-Moulin SRG, chaque jeune est accueilli dans un cadre stable, bienveillant et sécurisant.</p>
         <p>Tout est pensé pour répondre à ses besoins essentiels :
@@ -73,23 +76,23 @@ get_header();
     <section class="valeurs__vieux__moulin">
         <h3>Éducation</h3>
         <p>À leur arrivée, chaque jeune apporte ses ressources, ses compétences, mais aussi ses fragilités. Grâce à un accompagnement fondé sur le respect mutuel et la bientraitance, nous les aidons à se développer en intégrant des valeurs essentielles comme la politesse, le respect de soi et des autres.</p>
-        <img src="./src/img/logo-vieux-moulin.png">
+        <image src="./src/image/logo-vieux-moulin.png">
     </section>
     <section class="valeurs__vieux__moulin">
         <h3>Socialisation</h3>
         <p>Pour grandir et s’épanouir, chaque jeune a besoin de développer un réseau social en accord avec son modèle éducatif. Tout au long de la prise en charge, notre institution veille à préserver et renforcer ses liens sociaux, en maintenant son environnement scolaire et ses activités. Nous proposons également des activités individuelles ainsi que des stages et camps pendant les vacances scolaires.</p>
-        <img src="./src/img/logo-vieux-moulin.png">
+        <image src="./src/image/logo-vieux-moulin.png">
     </section>
     <section class="valeurs__vieux__moulin">
         <h3>Responsabilisation</h3>
         <p>Nous souhaitons à chaque jeune d’évoluer, de grandir et pour ce faire nous mettons l’accent sur la responsabilisation face à ses actes, face à ses choix, face à ses décisions pour lui permettent d’être ACTEUR de sa propre vie.</p>
-        <img src="./src/img/logo-vieux-moulin.png">
+        <image src="./src/image/logo-vieux-moulin.png">
     </section>
     <section class="valeurs__vieux__moulin">
         <h3>Autonomie</h3>
         <p>L’enfant, le jeune se construit à partir de son vécu et développe ses propres compétences.
             Au Vieux-Moulin SRG, nous encourageons l’autonomie à travers les gestes du quotidien et l’apprentissage de la prise de décision, en tenant compte de l’âge et des capacités de chacun.</p>
-        <img src="./src/img/logo-vieux-moulin.png">
+        <image src="./src/image/logo-vieux-moulin.png">
     </section>-->
 </section>
 <!-- Titre de fin de page -->

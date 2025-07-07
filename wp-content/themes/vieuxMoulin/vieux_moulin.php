@@ -1,24 +1,28 @@
-<?php
-/*
-Template Name: vieux_moulin
-*/
-get_header();
-?>
+<?php /* Template name: Template "vieux_mouli*/ ?>
+<?php get_header(); ?>
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>../css/reset.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>../css/vieuxMoulin.css">
+
     <title>Vieux Moulin</title>
 </head>
 <body>
 <header>
 
     <h1>Le Vieux Moulin</h1>
-    <!--<img src="./src/img/maison__vieux__moulin.jpg" alt="vue de la maison de vieux moulin" class="vieux__moulin">-->
-    <img src="<?php the_field('picture__vieux__moulin__home'); ?>" alt="vue de la maison de vieux moulin" class="vieux__moulin">
-	<?php get_template_part('partials/scroll'); ?>
+    <!--<image src="./src/image/maison__vieux__moulin.jpg" alt="vue de la maison de vieux moulin" class="vieux__moulin">-->
+	<?php
+	$image__vieux__moulin = get_field('picture__vieux__moulin__home');
+	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	if ($image__vieux__moulin) :
+		?>
+        <div class="image" style="flex: 1;">
+            <img class="image__vieux__moulin"  src="<?php echo esc_url($image__vieux__moulin['url']); ?>" alt="<?php echo esc_attr($image__vieux__moulin['alt']); ?>">
+        </div>
+	<?php endif; ?>
+    <?php get_template_part('partials/scroll'); ?>
 
 </header>
 <section class="info__vieux__moulin">
@@ -33,7 +37,7 @@ get_header();
         <p>Emai : <a href="direction@levm.be">direction@levm.be</a></p>
         <p>DirecteurE</p>
         <a>Nous envoyer un message</a>
-        <img src="">-->
+        <image src="">-->
 	<p>
         <?php the_field('contact__directeur'); ?>
     </p>
@@ -45,24 +49,54 @@ get_header();
              <a href="<?php the_field('redirection__page'); ?>" class="button">Nous envoyer un message</a>
     </p>
         <img src="<?php the_field('icone__people'); ?>" alt="vue de 3 persone de plus petit aux plus grand" class="icone__people">
+	    <?php
+	    $image__icone__people = get_field('icone__people');
+	    // var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	    if ($image__icone__people) :
+		    ?>
+            <div class="image" style="flex: 1;">
+                <img class="image__vieux__moulin"  src="<?php echo esc_url($image__icone__people['url']); ?>" alt="<?php echo esc_attr($image__icone__people['alt']); ?>">
+            </div>
+	    <?php endif; ?>
     </section>
 </section>
 <section class="maps">
     <h2 class="sr-only">Titre invible</h2>
-    <!--<img src="./src/img/carte__vieux__moulin.png" class="carte" alt="carte qui montre le vieux moulin">
+    <!--<image src="./src/image/carte__vieux__moulin.png" class="carte" alt="carte qui montre le vieux moulin">
     <a lang="fr" href="https://www.google.be/maps/place/Strainchamps+1,+6637+Fauvillers/@49.8761339,5.6751361,17z/data=!3m1!4b1!4m5!3m4!1s0x47eaa07e4546d339:0x197c28fdda915cae!8m2!3d49.8761305!4d5.677711?entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D">Voir sur maps</a>-->
         <img src="<?php the_field('carte__vieux__moulin'); ?>" alt="representation d'un plan qui represente la ville du vieux__moulin" class="carte__vieux__moulin">
+	<?php
+	$image__carte__vieux__moulin = get_field('carte__vieux__moulin');
+	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	if ($image__carte__vieux__moulin) :
+		?>
+        <div class="image" style="flex: 1;">
+            <img class="carte__vieux__moulin"  src="<?php echo esc_url($image__carte__vieux__moulin['url']); ?>" alt="<?php echo esc_attr($image__carte__vieux__moulin['alt']); ?>">
+        </div>
+	<?php endif; ?>
              <a href="<?php the_field('redirection__page__maps'); ?>" class="button">Voir sur maps</a>
 </section>
 
 <section class="autours__vieux__moulin">
     <h2>Environnement</h2>
     <!--<p>Le Vieux Moulin est situé dans le petit village de Strainchamps. Il bénéficie d’un bel espace extérieur, calme et verdoyant. Ce cadre idyllique permet à l’enfant de se développer dans les meilleures conditions possibles.</p>
-    <img src="./src/img/loupe-Foret.png">
+    <image src="./src/image/loupe-Foret.png">
 
     -->
         <?php the_field('environement__home'); ?>
         <img src="<?php the_field('picture__foret'); ?>" alt="representation d’une foret qui est autours du vieux moulin" class="picture__foret">
+	<?php
+	$image__picture__foret = get_field('picture__foret');
+	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	if ($image__picture__foret) :
+		?>
+        <div class="image" style="flex: 1;">
+            <img class="picture__foret"  src="<?php echo esc_url($image__picture__foret['url']); ?>" alt="<?php echo esc_attr($image__picture__foret['alt']); ?>">
+        </div>
+	<?php endif; ?>
 </section>
 <section class="vie__communautee">
     <h2>La vie en communauté</h2>
@@ -77,7 +111,7 @@ get_header();
         <?php the_field('vie__communautee'); ?>
     </p>
     <!--<div>
-        <img src="">
+        <image src="">
     </div>-->
     <div class="slider-container">
         <div class="slider-track">
@@ -108,7 +142,7 @@ get_header();
 
     <div>
         <!--<p class="autours__vieux__moulin__text">La Cabane des Gnomes offre un espace sécurisé propice aux rencontres pour nos jeunes tout en préservant leur lieu de vie quotidien. Cet espace a permis d’organiser des entretiens psychologiques individuels dans des conditions optimales.</p>
-        <img src="/src/img/ardeche.png" class="autours__vieux__moulin__img">
+        <image src="/src/image/ardeche.png" class="autours__vieux__moulin__img">
         <a class="rediretion">Aller vers Edelweiss</a>
         -->
         <p class="autours__vieux__moulin__text"><?php get_field('vie__comunautee') ?></p>

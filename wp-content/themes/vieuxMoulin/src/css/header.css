@@ -23,3 +23,52 @@ select{
     width: auto;
     margin-right: -10%;
 }
+.menu-principal {
+    background-color: #222;
+    padding: 10px;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #444;
+    border-radius: 5px;
+}
+
+.sous-menu {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    z-index: 1000;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.sous-menu li {
+    width: 100%;
+}
+
+.menu-deroulant:hover .sous-menu {
+    display: block;
+}

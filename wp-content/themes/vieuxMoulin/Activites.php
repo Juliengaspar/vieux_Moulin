@@ -1,9 +1,5 @@
-<?php
-/*
-Template Name: Activités
-*/
-get_header();
-?>
+<?php /* Template name: Template "activités*/ ?>
+<?php get_header(); ?>
 
 <?php
 echo '<!-- fichier.php chargé -->';
@@ -25,7 +21,17 @@ echo '<!-- fichier.php chargé -->';
 <body>
 <header class="title__page">
     <h1>Activités</h1>
-    <img src="<?php the_field('icone__activitee'); ?>">
+    <!-- Image d'introduction -->
+	<?php
+	$image_activites = get_field('icone__activitee');
+	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	if ($image_activites) :
+		?>
+        <div class="icone__activitee">
+            <img src="<?php echo esc_url($image_activites['url']); ?>" alt="<?php echo esc_attr($image_activites['alt']); ?>">
+        </div>
+	<?php endif; ?>
     <p style="margin-top: 20px;">↓ scroll ↓</p>
     <div id="balloon-div">
         <div class="svg__content">
@@ -79,20 +85,21 @@ echo '<!-- fichier.php chargé -->';
         <h3>🎵En avant la musique !</h3>
         <p>Tu aimes la musique ? Des bénévoles viennent spécialement pour t’aider à découvrir la musique et peut-être même te donner envie d’en faire plus tard !</p>
         <div>
-            <img src="./src/img/img-rotate.png" class="exemple__of__activitee">
+            <image src="./src/image/image-rotate.png" class="exemple__of__activitee">
         </div>
     </section>
     <section class="activitee">
         <h3>🎅La magie de Saint-Nicolas</h3>
         <p>En février, une grande surprise nous attend ! Saint Nicolas et son fidèle ami, le Père Fouettard, viennent nous rendre visite. Les enfants sages reçoivent des cadeaux, et tout le monde passe un bon moment plein de rires et de joie.</p>
         <div>
-            <img src="./src/img/img-rotate.png" class="exemple__of__activitee">
+            <image src="./src/image/image-rotate.png" class="exemple__of__activitee">
         </div>
     </section>-->
 </section>
 <section class="activitees">
     <h2>Des sorties Incroyables pour s’amuser</h2>
     <p>Aux Vieux Moulins, on part en excursion pour découvrir de nouveaux endroits et passer des journées inoubliables !</p>
+    <p><?php the_sub_field('voyages__description') ?></p>
     <!-- VOYAGES (RÉPÉTEUR) -->
 	<?php if (have_rows('voyages')): ?>
         <section style="max-width: 1000px; margin: auto; padding: 20px;">
@@ -112,28 +119,28 @@ echo '<!-- fichier.php chargé -->';
         <h3> 🎡Au Parc Merveilleux</h3>
         <p>on rencontre des animaux, on joue et on explore un monde magique.</p>
         <div>
-            <img src="./src/img/img-rotate.png" class="exemple__of__activitee">
+            <image src="./src/image/image-rotate.png" class="exemple__of__activitee">
         </div>
     </section>
     <section class="activitee">
         <h3> 🎢À Walibi,</h3>
         <p>on fait le plein de sensations fortes avec des manèges et des attractions géniales ! </p>
         <div>
-            <img src="./src/img/img-rotate.png" class="exemple__of__activitee">
+            <image src="./src/image/image-rotate.png" class="exemple__of__activitee">
         </div>
     </section>
     <section class="activitee">-
         <h3>🚶Des balades pour explorer ! </h3>
         <p>On adore partir en balade pour découvrir la nature, respirer le grand air et profiter d’un moment avec les copains.!</p>
         <div>
-            <img src="./src/img/img-rotate.png" class="exemple__of__activitee">
+            <image src="./src/image/image-rotate.png" class="exemple__of__activitee">
         </div>
     </section>
     <section class="activitee">
         <h3>🏕️Cap sur l’Ardèche</h3>
         <p>On part ensemble en voyage en Ardèche ! Là-bas, on découvre la nature, on fait des activités géniales et on passe du temps bord de la piscine avec les copains. C’est une aventure qu’on n’oubliera jamais !</p>
         <div>
-            <img src="./src/img/img-rotate.png" class="exemple__of__activitee">
+            <image src="./src/image/image-rotate.png" class="exemple__of__activitee">
         </div>
     </section>-->
 </section>

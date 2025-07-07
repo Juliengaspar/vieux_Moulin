@@ -1,9 +1,5 @@
-<?php
-/*
-Template Name: etablissement
-*/
-get_header();
-?>
+<?php /* Template name: Template "etablissement*/ ?>
+<?php get_header(); ?>
 <html lang="fr-be">
 <head>
 
@@ -21,6 +17,17 @@ get_header();
 		</h2>
 		<!--<p>Le Vieux Moulin ou  Edelweiss  </p>-->
         <p style="max-width: 800px; margin: auto;"><?php the_field('text__of__page'); ?></p>
+        <img src="<?php the_field('background__header'); ?>" alt="Image Vieux Moulin" style="width: 100%; max-width: 600px;">
+	    <?php
+	    $image_header = get_field('background__header');
+	    // var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	    if ($image_header) :
+		    ?>
+            <div class="background__header" style="flex: 1;">
+                <img class="images" src="<?php echo esc_url($image_header['url']); ?>" alt="<?php echo esc_attr($image_header['alt']); ?> " style="width: 100%; max-width: 600px;">
+            </div>
+	    <?php endif; ?>
 	    <?php get_template_part('partials/scroll'); ?>
 
     </section>
@@ -30,7 +37,17 @@ get_header();
 		<section class="etalisement">
 		    <h2>EDELWEISS</h2>
             <img src="<?php the_field('image_ew'); ?>" alt="Image Vieux Moulin" style="width: 100%; max-width: 600px;">
-			<section>
+			<?php
+			$image_ew_home = get_field('image_ew');
+			// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+			if ($image_ew_home) :
+				?>
+                <div class="image_ew" style="flex: 1;">
+                    <img class="images" src="<?php echo esc_url($image_ew_home['url']); ?>" alt="<?php echo esc_attr($image_ew_home['alt']); ?> " style="width: 100%; max-width: 600px;">
+                </div>
+			<?php endif; ?>
+            <section>
             <h3>Coordonées</h3>
             <ul>
                 <li> <?php the_field('coordonnee_ew'); ?></li>
@@ -49,7 +66,17 @@ get_header();
             <!--Le Vieux Moulin -->
             <section style="padding: 50px;">
                 <h2>Le Vieux Moulin</h2>
-                <img src="<?php the_field('image_vm'); ?>" alt="Image Edelweiss" style="width: 100%; max-width: 600px;">
+	            <?php
+	            $image_vm_home = get_field('image_vm');
+	            // var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+
+	            if ($image_vm_home) :
+		            ?>
+                    <div class="image_vm" style="flex: 1;">
+                        <img class="images" src="<?php echo esc_url($image_vm_home['url']); ?>" alt="<?php echo esc_attr($image_vm_home['alt']); ?> " style="width: 100%; max-width: 600px;">
+                    </div>
+	            <?php endif; ?>
+
                <section>
                 <h3>Coordonnées</h3>
 
