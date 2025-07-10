@@ -44,47 +44,47 @@ add_action( 'wp_enqueue_scripts', function() {
 //	],
 //	'supports' => ['title','excerpt','editor','thumbnail'],
 //]);
-function mon_portfolio_styles() {
+function mon_vieuxMoulin_styles() {
 	// 1. Fichier reset.css pour toutes les pages
-	wp_enqueue_style('reset-css', get_template_directory_uri() . './src/css/reset.css' , [], time());
+	wp_enqueue_style('reset-css', get_template_directory_uri() . '/src/css/reset.css' , [], time());
 
 	// 2. Styles selon les templates ou fichiers
 	if (is_page_template('accueil.php')) {
-		wp_enqueue_style('accueil-css', get_template_directory_uri() . './src/css/aceuil.css' , [], time());
+		wp_enqueue_style('accueil-css', get_template_directory_uri() . '/src/css/aceuil.css' , [], time());
 	}
 
 	if (is_page_template('contact.php')) {
-		wp_enqueue_style('contact-css', get_template_directory_uri() . './src/css/contact.css' , [], time());
+		wp_enqueue_style('contact-css', get_template_directory_uri() . '/src/css/contact.css' , [], time());
 	}
 
 	if (is_page_template('Activites.php')) {
-		wp_enqueue_style('activitees-css', get_template_directory_uri() . './src/css/activitees.css' , [], time());
+		wp_enqueue_style('activitees-css', get_template_directory_uri() . '/src/css/activitees.css' , [], time());
 	}
 
 	if (is_page_template('Administration.php') || is_singular('project')) {
-		wp_enqueue_style('administration-css', get_template_directory_uri() . './src/css/administration.css' , [], time());
+		wp_enqueue_style('administration-css', get_template_directory_uri() . '/src/css/administration.css' , [], time());
 	}
 	if (is_page_template('Dons.php') || is_singular('project')) {
-		wp_enqueue_style('dons-css', get_template_directory_uri() . './src/css/dons.css' , [], time());
+		wp_enqueue_style('dons-css', get_template_directory_uri() . '/src/css/dons.css' , [], time());
 	}
 	if (is_page_template('Edelweisse.php') || is_singular('project')) {
-		wp_enqueue_style('edelweisse-css', get_template_directory_uri() . './src/css/edelweisse.css' , [], time());
+		wp_enqueue_style('edelweisse-css', get_template_directory_uri() . '/src/css/edelweisse.css' , [], time());
 	}
 	if (is_page_template('etablisement.php') || is_singular('project')) {
-		wp_enqueue_style('etablisement-css', get_template_directory_uri() . './src/css/etablisement.css' , [], time());
+		wp_enqueue_style('etablisement-css', get_template_directory_uri() . '/src/css/etablisement.css' , [], time());
 	}
 	if (is_page_template('vieux_moulin.php') || is_singular('project')) {
-		wp_enqueue_style('vieuxMoulin-css', get_template_directory_uri() . './src/css/vieuxMoulin.css' , [], time());
+		wp_enqueue_style('vieuxMoulin-css', get_template_directory_uri() . '/src/css/vieuxMoulin.css' , [], time());
 	}
 	if (is_page_template('nos_valeurs.php') || is_singular('project')) {
-		wp_enqueue_style('vosValeurs-css', get_template_directory_uri() . './src/css/vosValeurs.css' , [], time());
+		wp_enqueue_style('vosValeurs-css', get_template_directory_uri() . '/src/css/vosValeurs.css' , [], time());
 	}
 
 	// 3. Header et footer toujours présents
-	wp_enqueue_style('header-css', get_template_directory_uri() . './src/css/header.css' , [], time());
-	wp_enqueue_style('footer-css', get_template_directory_uri() . './src/css/footer.css' , [], time());
+	wp_enqueue_style('header-css', get_template_directory_uri() . '/src/css/header.css' , [], time());
+	wp_enqueue_style('footer-css', get_template_directory_uri() . '/src/css/footer.css' , [], time());
 }
-add_action('wp_enqueue_scripts', 'mon_portfolio_styles');
+add_action('wp_enqueue_scripts', 'mon_vieuxMoulin_styles');
 
 
 function dw_get_navigation_links(string $location): array
