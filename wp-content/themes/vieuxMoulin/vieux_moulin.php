@@ -1,16 +1,196 @@
-<?php /* Template name: Template "vieux_mouli*/ ?>
+<?php 
+/* 
+Template name: Template "vieux_moulin
+*/
+?>
 <?php get_header(); ?>
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-<html lang="fr">
 <head>
 
     <title>Vieux Moulin</title>
+    <style>
+        body{
+            background-color: white;
+            font-size: 16px;
+        }
+        a{
+            cursor: pointer;
+        }
+        .header__vieuxMoulin{
+            background-color: #BDFAEA;
+            color: black;
+            text-align: center;
+        }
+        .vieux__moulin__title{
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            text-shadow: 5px 5px 4px rgba(47,109,236,0.64);
+        }
+
+        .vieux__moulin{
+
+        }
+
+        .info__vieux__moulin>h2{
+            font-size: 2.5rem;
+            text-align: center;
+            width: 40%;
+            height: auto;
+            margin: auto;
+            font-weight: 800;
+            text-shadow: 5px 5px 4px rgba(47,109,236,0.64);
+        }
+        .info__vieux__moulin>p{
+            width: 70%;
+            margin: 2% auto;
+        }
+
+        .contacte__vieux__moulin{
+            margin: 5%;
+            display: flex;
+        }
+
+        .contacte__vieux__moulin>h3{
+            font-size: 2.5rem;
+            margin: 2% 5%;
+        }
+
+        .contacte__vieux__moulin>p{
+            width: 30%;
+            font-size: 1rem;
+            margin-bottom: 1%;
+            line-height: 2.5vh;
+            margin-left: 5%;
+        }
+
+        .contacte__vieux__moulin>a{
+            padding: 1rem 0.5rem;
+            background-color: #0466F3;
+            color: white;
+            margin: 2% 5%;
+        }
+        .contacte__vieux__moulin>img{
+        }
+        .maps{
+
+        }
+        .maps>img{
+            width: 80%;
+            margin: 0 10%;
+            height: auto;
+        }
+        .maps>a{
+            background-color: #0466F3;
+            color: white;
+            margin: 10%;
+            padding: 0.5rem 1rem;
+        }
+
+        .autours__vieux__moulin{
+            margin-top: 5%;
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+        .autours__vieux__moulin>h2,
+        .autours__vieux__moulin>p{
+            grid-column: 2;
+            margin-top: 5%;
+            margin-left: 5%;
+        }
+
+
+        .picture__foret{
+            grid-column: 1;
+            margin-top: -10%;
+            width: 70%;
+            height: auto;
+            margin-left: 25%;
+        }
+
+        .vie__communautee{
+            margin: 5% 10%;
+        }
+        .vie__communautee>p{
+            margin: 5% 0;
+            line-height: 5vh;
+        }
+        .slider-container {
+            overflow: hidden;
+            width: 100%;
+            background-color: #f8f8f8;
+        }
+
+        .slider-track {
+            display: flex;
+            width: fit-content;
+            animation: scroll-left 20s linear infinite;
+        }
+
+        .slider-image {
+            flex: 0 0 auto;
+            height: 150px; /* Choisis la hauteur souhaitée */
+            margin-right: 20px;
+        }
+
+        .slider-image img {
+            height: 100%;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .legend{
+            text-align: center;
+            font-style: italic;
+            color: #006DFF;
+        }
+        .button{
+            font-size: 1rem;
+            background-color: #0466F3;
+            color: white;
+        }
+
+        .button:hover{
+            background-color: #003481;
+        }
+
+        #button__contacte{
+            padding:  2% 5%;
+            margin: 5% 0;
+        }
+        #button__maps{
+            padding: 1% 5%;
+            margin-left: 2%;
+        }
+
+        .autours__vieux__moulin__text{
+            margin-top: 5%;
+        }
+
+        .autours__vieux__moulin__img{
+            width: 100px;
+            height: auto;
+            max-width: 50%;
+            max-height: 100%;
+            margin: 10% 0;
+        }
+
+    </style>
 </head>
 <body>
-<header>
+<section class="header__vieuxMoulin">
+	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-    <h1>Le Vieux Moulin</h1>
+    <h1 class="vieux__moulin__title">Le Vieux Moulin</h1>
     <!--<image src="./src/image/maison__vieux__moulin.jpg" alt="vue de la maison de vieux moulin" class="vieux__moulin">-->
 	<?php
 	$image__vieux__moulin = get_field('picture__vieux__moulin__home');
@@ -18,13 +198,13 @@
 
 	if ($image__vieux__moulin) :
 		?>
-        <div class="image" style="flex: 1;">
+        <div class="image">
             <img class="image__vieux__moulin"  src="<?php echo esc_url($image__vieux__moulin['url']); ?>" alt="<?php echo esc_attr($image__vieux__moulin['alt']); ?>">
         </div>
 	<?php endif; ?>
     <?php get_template_part('partials/scroll'); ?>
 
-</header>
+</section>
 <section class="info__vieux__moulin">
     <h2>Info</h2>
     <!--<p>Le Vieux Moulin est un Service Résidentiel Général qui accueille et héberge des enfants et adolescents de 0 à 18 ans, placés par les services d'aide et de protection de la jeunesse. Sa mission est d'assurer un cadre sécurisant et éducatif aux jeunes en difficulté, dont la santé, la sécurité ou les conditions de vie sont compromises en raison de leur situation ou de leur entourage. L'accompagnement repose sur une approche basée sur la confiance.</p>-->
@@ -32,73 +212,56 @@
     <?php the_field('description__home'); ?>
     </p>
     <section class="contacte__vieux__moulin">
+        <div>
         <h3>Contact</h3>
-        <!--<p>Monsieur Jean-François SCHMIT</p>
-        <p>Emai : <a href="direction@levm.be">direction@levm.be</a></p>
-        <p>DirecteurE</p>
-        <a>Nous envoyer un message</a>
-        <image src="">-->
 	<p>
         <?php the_field('contact__directeur'); ?>
     </p>
-    <p>Email:
-        <?php the_field('email__redirection__direction'); ?>
-    </p>
+    <p>Email:<?php the_field('email__redirection__direction'); ?></p>
          <p>
-        <?php the_field('email__redirection__direction'); ?>
-             <a href="<?php the_field('redirection__page'); ?>" class="button">Nous envoyer un message</a>
-    </p>
-        <img src="<?php the_field('icone__people'); ?>" alt="vue de 3 persone de plus petit aux plus grand" class="icone__people">
-	    <?php
-	    $image__icone__people = get_field('icone__people');
-	    // var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
 
-	    if ($image__icone__people) :
-		    ?>
-            <div class="image" style="flex: 1;">
-                <img class="image__vieux__moulin"  src="<?php echo esc_url($image__icone__people['url']); ?>" alt="<?php echo esc_attr($image__icone__people['alt']); ?>">
-            </div>
+             <a href="<?php echo esc_url(get_field('redirecton__page__contacte')); ?>" class="button" id="button__contacte">Nous envoyer un message</a>
+        </p>
+        </div>
+	    <?php $icone = get_field('icone__people'); ?>
+	    <?php if ($icone): ?>
+        <div>
+        <img src="<?php echo esc_url($icone['url']); ?>" alt="<?php echo esc_attr($icone['alt']); ?>">
+        </div>
 	    <?php endif; ?>
     </section>
 </section>
 <section class="maps">
-    <h2 class="sr-only">Titre invible</h2>
-    <!--<image src="./src/image/carte__vieux__moulin.png" class="carte" alt="carte qui montre le vieux moulin">
-    <a lang="fr" href="https://www.google.be/maps/place/Strainchamps+1,+6637+Fauvillers/@49.8761339,5.6751361,17z/data=!3m1!4b1!4m5!3m4!1s0x47eaa07e4546d339:0x197c28fdda915cae!8m2!3d49.8761305!4d5.677711?entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D">Voir sur maps</a>-->
-        <img src="<?php the_field('carte__vieux__moulin'); ?>" alt="representation d'un plan qui represente la ville du vieux__moulin" class="carte__vieux__moulin">
-	<?php
+    <h2 class="sr-only" style="display: none">Titre invible</h2>
+    	<?php
 	$image__carte__vieux__moulin = get_field('carte__vieux__moulin');
 	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
 
 	if ($image__carte__vieux__moulin) :
 		?>
-        <div class="image" style="flex: 1;">
+        <div class="image" >
             <img class="carte__vieux__moulin"  src="<?php echo esc_url($image__carte__vieux__moulin['url']); ?>" alt="<?php echo esc_attr($image__carte__vieux__moulin['alt']); ?>">
         </div>
 	<?php endif; ?>
-             <a href="<?php the_field('redirection__page__maps'); ?>" class="button">Voir sur maps</a>
+                <a href="<?php echo esc_url(get_field('redirection__page__maps')); ?>" class="button" id="button__maps">Voir sur maps</a>
+
 </section>
 
 <section class="autours__vieux__moulin">
     <h2>Environnement</h2>
-    <!--<p>Le Vieux Moulin est situé dans le petit village de Strainchamps. Il bénéficie d’un bel espace extérieur, calme et verdoyant. Ce cadre idyllique permet à l’enfant de se développer dans les meilleures conditions possibles.</p>
-    <image src="./src/image/loupe-Foret.png">
-
-    -->
         <?php the_field('environement__home'); ?>
-        <img src="<?php the_field('picture__foret'); ?>" alt="representation d’une foret qui est autours du vieux moulin" class="picture__foret">
 	<?php
 	$image__picture__foret = get_field('picture__foret');
 	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
 
 	if ($image__picture__foret) :
 		?>
-        <div class="image" style="flex: 1;">
+        <div class="image">
             <img class="picture__foret"  src="<?php echo esc_url($image__picture__foret['url']); ?>" alt="<?php echo esc_attr($image__picture__foret['alt']); ?>">
         </div>
 	<?php endif; ?>
 </section>
-<section class="vie__communautee">
+<section class="vie__communautees">
     <h2>La vie en communauté</h2>
     <!--<p>Vivre en communauté n’est pas toujours facile, surtout lorsque l’adolescent traverse les bouleversements liés à son évolution.
         Tandis que les plus jeunes jouent et s’expriment bruyamment, l’adolescent cherche un espace où il peut se retrouver avec ses pairs en toute tranquillité.
@@ -108,7 +271,7 @@
         La cuisine, véritable cœur de la maison, est un lieu de partage et d’échange où tous se retrouvent pour les repas, renforçant ainsi le lien communautaire.
          </p>-->
     <p>
-        <?php the_field('vie__communautee'); ?>
+        <?php get_field('vie__communautee'); ?>
     </p>
     <!--<div>
         <image src="">
@@ -130,22 +293,13 @@
         </div>
     </div>
     <!--<p >Le jeu ouvre toutes les portes. Pour un professionnel, il constitue la plus belle fenêtre d’observation de l’état psychique d’un enfant. Le jeu est aussi un moyen privilégié d’entrer en relation avec l’enfant, en particulier lorsque le lien avec l’adulte est fragile ou rompu.</p>-->
-    <p>
-        <?php get_field('vie__comunautee__part2') ?>
-    </p>
-    <p class="legend">
-        <?php get_field('citation__vieux__moulin') ?>
-    </p>
-    <!--<p class="legend">"Montre-moi comment tu joues, et je te dirai comment tu grandis."></p>-->
-    <!--<a class="rediretion">Parcourir nos activités et nos sorties</a>-->
-    <a href="<?php the_field('redirecton__page__activitees'); ?>" class="button">Parcourir nos activités et nos sorties</a>
+    <p><?php the_field('vie__comunautee__part2') ?></p>
+    <p class="legend"><?php the_field('citation__vieux__moulin') ?></p>
+    <a href="<?php echo esc_url(get_field('redirecton__page__activitees')); ?>" class="button" id="button__Activitees">Parcourir nos activités et nos sorties</a>
+
 
     <div>
-        <!--<p class="autours__vieux__moulin__text">La Cabane des Gnomes offre un espace sécurisé propice aux rencontres pour nos jeunes tout en préservant leur lieu de vie quotidien. Cet espace a permis d’organiser des entretiens psychologiques individuels dans des conditions optimales.</p>
-        <image src="/src/image/ardeche.png" class="autours__vieux__moulin__img">
-        <a class="rediretion">Aller vers Edelweiss</a>
-        -->
-        <p class="autours__vieux__moulin__text"><?php get_field('vie__comunautee') ?></p>
+        <p class="autours__vieux__moulin__text"><?php the_field('vie__comunautee') ?></p>
         <div>
 		    <?php
 		    $galeries__activitees = get_field('activitee__home');
@@ -155,15 +309,13 @@
 			    <?php endforeach;
 		    endif;
 		    ?>
+        <a href="<?php echo esc_url(get_field('redirection____page__el')); ?>" class="button" id="button__Edelweiss">Aller vers Edelweiss</a>
+<!--	       /*?php var_dump(get_field('redirection____page__el')); ?>*/-->
         </div>
-    <a href="<?php the_field('redirection__Edelweiss__page'); ?>" class="button">Aller vers Edelweiss</a>
     </div>
 </section>
 <?php
 endwhile;
 endif;
 get_footer();
-
 ?>
-</body>
-</html>

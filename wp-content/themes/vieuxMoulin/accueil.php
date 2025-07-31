@@ -6,18 +6,16 @@ Template name: Template "accueil
 <?php get_header(); ?>
     <!--<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/aceuil.css">-->
+
+	<title>Aceuille</title>
 <style>
 
-    body{
-        background-color: white;
-        font-family: cavea;
-    }
-    header{
+    .acceuille__haut__page{
         background-color: #BDFAEA;
         text-align: center;
         margin: 5% 0;
     }
-    header>h1{
+    .acceuille__haut__page>h1{
         margin-top: 5%;
         margin-bottom: 5%;
         padding: 2% 0;
@@ -26,10 +24,14 @@ Template name: Template "accueil
         font-style: italic;
     }
 
+    .welcome__page>img{
+        margin-left: 60%;
+    }
+
     .welcome__page>p{
         text-align: center;
-        width: 30%;
-        margin: 5% 35% 0;
+        width: auto;
+        margin: -8% 30% 5%;
         padding: 2% 0;
         font-size: 2.5rem;
         color: #013BB3;
@@ -42,6 +44,16 @@ Template name: Template "accueil
         font-size: 2rem;
         width: 50%;
         margin: 0 25%;
+    }
+    .scroll__animation{
+        width: 10%;
+        height: auto;
+        margin: auto;
+    }
+
+    .image_contenu>img{
+        width: 75%;
+        height: auto;
     }
 
     h3{
@@ -73,10 +85,7 @@ Template name: Template "accueil
         margin: 0 5% 0 70%;
     }
 </style>
-
-	<title>Aceuille</title>
-<body>
-<header>
+<section class="acceuille__haut__page">
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	<h1>Le Vieux Moulin</h1>
     <!-- Image d'introduction -->
@@ -94,9 +103,11 @@ Template name: Template "accueil
         </div>
 	<?php endif; ?>
 
+    <div class="scroll__animation">
 	<?php get_template_part('partials/scroll'); ?>
+    </div>
 
-</header>
+</section>
 <section>
 	<h2 style="display: none">test invisible</h2>
 <?php

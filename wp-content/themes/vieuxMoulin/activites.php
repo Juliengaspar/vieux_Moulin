@@ -1,38 +1,78 @@
-<?php /* Template name: Template "activités*/ ?>
-<?php get_header(); ?>
-
 <?php
-echo '<!-- fichier.php chargé -->';
+/*
+Template Name: Template "activités"
+*/
 ?>
-
-<?php if (!defined('ABSPATH')) exit; ?>
-<p>Fichier bien chargé</p>
-
-
-<html lang="fr">
+<?php get_header(); ?>
 <head>
-
-    <link rel="stylesheet" href="../css/reset.css">
-	 <link rel="stylesheet" href="../css/activitees.css">
-    <!--<link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./index.css">-->
     <title>Activités</title>
+    <style>
+        .title__page{
+            background-color: #BDFAEA;
+        }
+        .title__page>h1{
+            margin:5% 50%;
+        }
+        .title__page>.icone__activitee{
+            margin:5% 50%;
+
+        }
+        .scroll__animation{
+            width: 10%;
+            height: auto;
+            margin: auto;
+        }
+
+        .activitees>h2,
+        .activitees>p{
+            margin-left: 15%;
+        }
+        .activitees>h2{
+            font-size: 2rem;
+            font-style: italic;
+            font-weight: 700;
+        }
+    .picture_voyage>img,
+    .image-activitee>img{
+        height: auto;
+        width: 50%;
+    }
+
+        .redirection{
+            background-color: #BDFAEA;
+            color: black;
+            text-decoration: none;
+            padding: 2%;
+            margin-bottom: 5%;
+            -webkit-box-shadow: 5px 5px 12px 6px rgba(0,0,0,0.25);
+            box-shadow: 5px 5px 12px 6px rgba(0,0,0,0.25);
+        }
+        .redirection:hover{
+            background-color: #2a688f;
+            color: white;
+        }
+
+        .link__navigations{
+            margin: 5%;
+        }
+
+
+    </style>
 </head>
 <body>
-<header class="title__page">
+<section class="title__page">
     <h1>Activités</h1>
     <!-- Image d'introduction -->
 	<?php
-	$image_activites = get_field('icone__activitee');
-	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+	$image_activites__header = get_field('icone__activitee');
 
-	if ($image_activites) :
+	if ($image_activites__header) :
 		?>
         <div class="icone__activitee">
-            <img src="<?php echo esc_url($image_activites['url']); ?>" alt="<?php echo esc_attr($image_activites['alt']); ?>">
+            <img src="<?php echo esc_url($image_activites__header['url']); ?>" alt="<?php echo esc_attr($image_activites__header['alt']); ?>">
         </div>
 	<?php endif; ?>
-    <p style="margin-top: 20px;">↓ scroll ↓</p>
+    <p style="margin-top: 20px;"></p>
     <div id="balloon-div">
         <div class="svg__content">
             <div id="ballon__creation"></div>
@@ -52,29 +92,32 @@ echo '<!-- fichier.php chargé -->';
         </div>
 
     </div>
+    <div class="scroll__animation">
 	<?php get_template_part('partials/scroll'); ?>
-</header>
+    </div>
+</section>
 <section class="activitees">
     <h2>Viens découvrir tout ce qu’on fait au Vieux Moulin </h2>
     <!--<p>Découvrez sur cette page une sélection d’activités et d’événements organisés
         avec les jeunes au Vieux Moulin pour partager de bons moments.</p>-->
-    <p>
-        <?php
-            get_field("description__page__activitee");
-        ?>
-    </p>
+    <p><?php the_field("description__page__activitee"); ?></p>
 
 	<?php if (have_rows('activites')) : ?>
         <section class="liste__projets" style="max-width: 1000px; margin: auto; padding: 20px;">
 			<?php while (have_rows('activites')) : the_row(); ?>
-                <article class="projet">
-                    <div>
-                    <img src="<?php the_sub_field('image-activitee'); ?>" alt="">
-
+                <section class="projet">
+                    <div class="activitees__listes" style="display: flex; align-items: flex-start; margin-bottom: 40px; gap: 20px;">	                    <?php
+	                    $image_activites = get_sub_field('image-activitee');
+	                    if ($image_activites) :
+		                    ?>
+                            <div class="image-activitee">
+                                <img src="<?php echo esc_url($image_activites['url']); ?>" alt="<?php echo esc_attr($image_activites['alt']); ?>">
+                            </div>
+	                    <?php endif; ?>
                     </div>
                     <h3><?php the_sub_field('title__activitee'); ?></h3>
                     <p><?php the_sub_field('description-actvitee'); ?></p>
-                </article>
+                </section>
 			<?php endwhile; ?>
         </section>
 	<?php else : ?>
@@ -104,13 +147,21 @@ echo '<!-- fichier.php chargé -->';
 	<?php if (have_rows('voyages')): ?>
         <section style="max-width: 1000px; margin: auto; padding: 20px;">
 			<?php while (have_rows('voyages')): the_row(); ?>
-                <div style="display: flex; align-items: flex-start; margin-bottom: 40px; gap: 20px;">
-                    <img src="<?php the_sub_field('picture_voyage'); ?>" alt="" style="width: 150px; height: auto;">
+                <section class="voyages__listes" style="display: flex; align-items: flex-start; margin-bottom: 40px; gap: 20px;">
+	                <?php
+	                $image_voyages = get_sub_field('picture_voyage');
+	                if ($image_voyages) :
+		                ?>
+                        <div class="picture_voyage">
+                            <img src="<?php echo esc_url($image_voyages['url']); ?>" alt="<?php echo esc_attr($image_voyages['alt']); ?>">
+                        </div>
+	                <?php endif; ?>
+
                     <div>
                         <h3><?php the_sub_field('title_voyage'); ?></h3>
                         <p><?php the_sub_field('description_voyage'); ?></p>
                     </div>
-                </div>
+                </section>
 			<?php endwhile; ?>
         </section>
 	<?php endif; ?>
@@ -143,8 +194,9 @@ echo '<!-- fichier.php chargé -->';
             <image src="./src/image/image-rotate.png" class="exemple__of__activitee">
         </div>
     </section>-->
+    <div class="link__navigations">
+<a href="<?php the_field("link__button")?>" class="redirection">Nous aider à faire plus d’activités</a>
+    </div>
 </section>
-<a href="<?php get_field("link__button")?>" class="redirection">Nous aider à faire plus d’activités</a>
 <?php get_footer(); ?>
 </body>
-</html>

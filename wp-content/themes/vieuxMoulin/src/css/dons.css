@@ -19,16 +19,14 @@ img{
     grid-template-columns: auto auto;
 }
 .coordonee__dons{
-    text-align: center;
     width: 100%;
     background-color: #BDFAEA;
     border-radius: 20px;
     padding: 2rem;
-    margin: 2rem auto;
+    margin: 2rem;
     color: black;
     height: auto;
     box-shadow: 7px 7px 20px 8px rgba(0,0,0,0.49);
-
 }
 .iban{
     font-weight: 700;
@@ -46,7 +44,6 @@ img{
 
 
 .dons__info{
-    text-align: center;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -61,10 +58,11 @@ img{
 
 
 }
-.donation__note{
+.donation__note>p>p{
     font-size: 0.9rem;
     color: #333;
     margin-top: 1.5rem;
+    margin-left: 5%;
 }
 
 
@@ -97,17 +95,43 @@ form{
     color: white;
     width:20%;
     border-radius: 10px;
-    margin: 5% 75%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10%;
+    margin-left: 10%;
+
 }
-.info__carte>div{
-    background-color: white;
-    color: black;
-    margin: 2% 0;
+
+
+
+label{
+    color: white;
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
 }
-.info__carte>input{
-    display: block;
-    margin-right: 50%;
+input, select, textarea {
+
 }
+input,
+select{
+    box-shadow: 5px 5px 4px 0 rgba(0,0,0,0.50);
+    padding: 0.8rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    font-size: 1rem;
+
+}
+input:focus{
+    border: 5px solid red;
+}
+
+button:hover {
+    background-color: #0466F3;
+    color: white;
+}
+
+
 
 button{
     text-align: center;

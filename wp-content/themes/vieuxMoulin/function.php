@@ -57,17 +57,17 @@ function mon_vieuxMoulin_styles() {
 		wp_enqueue_style('contact-css', get_template_directory_uri() . '/src/css/contact.css' , [], time());
 	}
 
-	if (is_page_template('Activites.php')) {
+	if (is_page_template('activites.php')) {
 		wp_enqueue_style('activitees-css', get_template_directory_uri() . '/src/css/activitees.css' , [], time());
 	}
 
-	if (is_page_template('Administration.php') || is_singular('project')) {
+	if (is_page_template('administration.php') || is_singular('project')) {
 		wp_enqueue_style('administration-css', get_template_directory_uri() . '/src/css/administration.css' , [], time());
 	}
-	if (is_page_template('Dons.php') || is_singular('project')) {
+	if (is_page_template('dons.php') || is_singular('project')) {
 		wp_enqueue_style('dons-css', get_template_directory_uri() . '/src/css/dons.css' , [], time());
 	}
-	if (is_page_template('Edelweisse.php') || is_singular('project')) {
+	if (is_page_template('edelweisse.php') || is_singular('project')) {
 		wp_enqueue_style('edelweisse-css', get_template_directory_uri() . '/src/css/edelweisse.css' , [], time());
 	}
 	if (is_page_template('etablisement.php') || is_singular('project')) {
@@ -79,10 +79,6 @@ function mon_vieuxMoulin_styles() {
 	if (is_page_template('nos_valeurs.php') || is_singular('project')) {
 		wp_enqueue_style('vosValeurs-css', get_template_directory_uri() . '/src/css/vosValeurs.css' , [], time());
 	}
-
-	// 3. Header et footer toujours présents
-	wp_enqueue_style('header-css', get_template_directory_uri() . '/src/css/header.css' , [], time());
-	wp_enqueue_style('footer-css', get_template_directory_uri() . '/src/css/footer.css' , [], time());
 }
 add_action('wp_enqueue_scripts', 'mon_vieuxMoulin_styles');
 

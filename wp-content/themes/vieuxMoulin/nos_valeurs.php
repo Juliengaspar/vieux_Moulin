@@ -1,50 +1,141 @@
 <?php /* Template name: Template "nos-valeurs*/ ?>
 <?php get_header(); ?>
-<html lang="fr-be">
+<html lang="fr-be" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premiers pages aceuille du projet clien vieux moulin fait avec woordpresse ">
-    <meta name="keywords" content="clien, Projet-web, Julien, woordpresse, formation hepl, vieux moulin"/>
-    <meta name="author" content="Julien Gaspar"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="../image/icones/vieux__moulin__icone__small.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../image/icones/vieux__moulin__icone__medium.png">
-    <link rel="icon" type="image/png" sizes="162x162" href="../image/icones/vieux__moulin__icone__large.png">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/vosValeurs.css">
+
     <title>Nos Valeurs</title>
+    <style>
+        body{
+            background-color: white;
+            font-size: 16px;
+            font-family: Helvetica;
+        }
+        a{
+            cursor: pointer;
+        }
+        .title__valeurs__page{
+            background-color: #BDFAEA;
+            text-align: center;
+        }
+        .title__valeurs__page>h2{
+            font-family: "cavea";
+            font-size: 3rem;
+            font-weight: 800;
+            text-shadow: 5px 5px 4px rgba(47,109,236,0.64);
+            padding: 5% 0;
+        }
+        .title__valeurs__page>p{
+            font-family: "cavea";
+            font-style: italic;
+            font-size: 2.5rem;
+            text-align: center;
+            width: 30%;
+            color: #013BB3;
+            margin: auto;
+
+        }
+
+        h2{
+            font-size: 2rem;
+        }
+
+        .valeurs_title
+
+        .valeurs__vieux__moulin{
+           display: flex;
+        }
+        .contenus__espace__enfants{
+            grid-column: 2;
+            margin-top: 10%;
+        }
+        .contenus__espace__enfants>h2{
+            margin-bottom: 5%;
+        }
+        .contenus__espace__enfants>p{
+            margin: 5% 0;
+            line-height: 2.5vh;
+        }
+        .rediretion{
+            background-color: #0466F3;
+            color: white;
+            padding:  1.5rem;
+            margin: 5% 0;
+        }
+
+        .img__rotate__autours{
+            grid-column: 1;
+        }
+        .img__rotate__autours{
+            margin-top: -30%;
+
+        }
+
+        .valeurs{
+            margin: 5%;
+        }
+        .valeurs>h2{
+            text-align: center;
+            margin: 5% 0;
+        }
+
+        .valeur{
+            display: flex;
+        }
+        .valeur>h3{
+            grid-column: 2;
+            margin-left: 25%;
+        }
+        .valeur>p{
+            margin-left: 25%;
+            grid-column: 2;
+            width: 50%;
+        }
+
+        .valeur__img{
+            grid-column: 1;
+        }
+
+        .valeur__img>img{
+            width: 50%;
+            height: auto;
+        }
+        .valeur__img>img{
+            margin-top: -25%;
+
+        }
+        h2:last-of-type{
+            font-style: italic;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 100;
+            width: 75%;
+            margin: 5% auto;
+        }
+    </style>
 </head>
 <body>
-<header class="title__valeurs" style="text-align: center; padding: 50px;"">
-    <h1>Nos valeurs</h1>
+<section class="title__valeurs__page">
+    <h2>Nos valeurs</h2>
         <p><?php the_field('text__page'); ?></p>
-//    <!--<p>Le Vieux Moulin est un service résidentiel général agréé par la Fédération Wallonie-Bruxelles.&nbsp;</p>-->
+   <!--<p>Le Vieux Moulin est un service résidentiel général agréé par la Fédération Wallonie-Bruxelles.&nbsp;</p>-->
         <?php get_template_part('partials/scroll'); ?>
-</header>
-<section class="about__vieux__moulin" style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px; max-width: 1000px; margin: 50px auto;">
+</section>
+<section class="about__vieux__moulin">
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-    <h2>Titre invicible</h2>
+    <h3>Titre invicible</h3>
 	<?php
 	$image__parc = get_field('picture__parc');
 	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
 
 	if ($image__parc) :
 		?>
-    <div class="image" style="flex: 1;">
-            <img class="logo__partenaire" id="aide__a__la__jeunesse" src="<?php echo esc_url($image__parc['url']); ?>" alt="<?php echo esc_attr($image__parc['alt']); ?>">
+    <div class="image__rotate">
+            <img class="image__parc" src="<?php echo esc_url($image__parc['url']); ?>" alt="<?php echo esc_attr($image__parc['alt']); ?>">
     </div>
 	<?php endif; ?>
-    <!--<div>
-        <p>Au Vieux-Moulin SRG, chaque jeune est accueilli dans un cadre stable, bienveillant et sécurisant.</p>
-        <p>Tout est pensé pour répondre à ses besoins essentiels :
-            un accueil matériel adapté,
-            un accompagnement éducatif solide et un véritable soutien au quotidien.</p>
-        <p>Dans cet environnement de confiance, chacun peut se découvrir, grandir, s’ouvrir au monde et devenir pleinement soi-même.</p>
-        <a>La vie aux Vieux Moulin</a>
-    </div>-->
-    <div class="text" style="flex: 1;">
+
+    <div class="text">
         <p><?php the_field('autours__vieux__moulin'); ?></p>
 	    <?php if (get_field('link__page')) : ?>
             <a href="<?php the_field('link__page'); ?>" class="button">La vie au Vieux Moulin</a>
@@ -52,52 +143,32 @@
     </div>
 </section>
 <section>
-    <!--<h2>Les valeurs que nous portons sont le reflet de notre mission et de notre engagement auprès des jeunes.</h2>-->
     <h2><?php the_field('titles__of__contenus'); ?></h2>
-    <!-- Sections dynamiques avec champ répéteur -->
-    <section class="valeurs__vieux__moulin" style="max-width: 1000px; margin: 60px auto;">
-		<?php if (have_rows('valeurs')): ?>
-			<?php while (have_rows('valeurs')): the_row(); ?>
-                <div class="bloc" style="margin-bottom: 50px;">
-                    <h3><?php the_sub_field('valeurs_title'); ?></h3>
-                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px;">
-                        <div class="image" style="flex: 1;">
-                            <img src="<?php the_sub_field('valeurs_image'); ?>" alt="Bloc image" style="width: 100%;">
-                        </div>
-                        <div class="texte" style="flex: 1;">
+    <section class="valeurs__vieux__moulin" >
+	    <?php if (have_rows('valeurs')): ?>
+		    <?php while (have_rows('valeurs')): the_row(); ?>
+                <div class="bloc">
+                    <h3 class="valeurs__title"><?php the_sub_field('valeurs_title'); ?></h3>
+                    <div>
+					    <?php
+					    $image__Valeurs = get_sub_field('valeurs_image');
+					    if ($image__Valeurs) :
+						    ?>
+                            <div class="image">
+                                <img class="images__valeurs" src="<?php echo esc_url($image__Valeurs['url']); ?>" alt="<?php echo esc_attr($image__Valeurs['alt']); ?>">
+                            </div>
+					    <?php endif; ?>
+                        <div class="texte">
                             <p><?php the_sub_field('description_valeurs'); ?></p>
                         </div>
                     </div>
                 </div>
-			<?php endwhile; ?>
-		<?php endif; ?>
+		    <?php endwhile; ?>
+	    <?php endif; ?>
     </section>
-    <!--
-    <section class="valeurs__vieux__moulin">
-        <h3>Éducation</h3>
-        <p>À leur arrivée, chaque jeune apporte ses ressources, ses compétences, mais aussi ses fragilités. Grâce à un accompagnement fondé sur le respect mutuel et la bientraitance, nous les aidons à se développer en intégrant des valeurs essentielles comme la politesse, le respect de soi et des autres.</p>
-        <image src="./src/image/logo-vieux-moulin.png">
-    </section>
-    <section class="valeurs__vieux__moulin">
-        <h3>Socialisation</h3>
-        <p>Pour grandir et s’épanouir, chaque jeune a besoin de développer un réseau social en accord avec son modèle éducatif. Tout au long de la prise en charge, notre institution veille à préserver et renforcer ses liens sociaux, en maintenant son environnement scolaire et ses activités. Nous proposons également des activités individuelles ainsi que des stages et camps pendant les vacances scolaires.</p>
-        <image src="./src/image/logo-vieux-moulin.png">
-    </section>
-    <section class="valeurs__vieux__moulin">
-        <h3>Responsabilisation</h3>
-        <p>Nous souhaitons à chaque jeune d’évoluer, de grandir et pour ce faire nous mettons l’accent sur la responsabilisation face à ses actes, face à ses choix, face à ses décisions pour lui permettent d’être ACTEUR de sa propre vie.</p>
-        <image src="./src/image/logo-vieux-moulin.png">
-    </section>
-    <section class="valeurs__vieux__moulin">
-        <h3>Autonomie</h3>
-        <p>L’enfant, le jeune se construit à partir de son vécu et développe ses propres compétences.
-            Au Vieux-Moulin SRG, nous encourageons l’autonomie à travers les gestes du quotidien et l’apprentissage de la prise de décision, en tenant compte de l’âge et des capacités de chacun.</p>
-        <image src="./src/image/logo-vieux-moulin.png">
-    </section>-->
 </section>
 <!-- Titre de fin de page -->
 <section>
-    <!--<h2>La qualité de nos infrastructures, l’équipement mis à disposition, l’épanouissement de chacun sont au cœur de ses préoccupations.</h2>-->
     <h2><?php the_field('text__end__page'); ?></h2>
 </section>
 <?php
@@ -105,5 +176,3 @@ endwhile;
 endif;
 get_footer();
 ?>
-</body>
-</html>

@@ -41,6 +41,12 @@ header{
     font-size: 3rem;
     padding: 1%;
 }
+.scroll__animation{
+    width: 10%;
+    height: auto;
+    margin: auto;
+}
+
 
 h2{
 }
