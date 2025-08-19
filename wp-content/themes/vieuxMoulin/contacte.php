@@ -34,12 +34,32 @@
         .scroll__animation{
             width: 10%;
             height: auto;
-            margin: auto;
+            margin: -1% auto;
+
+            animation: mouvement-vertical 2s ease-in-out infinite;
+
+            /* Pour un rendu plus net */
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
         }
 
-        h2{
+        @keyframes mouvement-vertical {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(10px); /* Ajustez cette valeur pour la hauteur du mouvement */
+            }
+        }
+
+        .info__contacte p,
+        .info__contacte a{
+            font-size: 1rem;
+        }
+
+        .title__contacte__info{
             font-size: 2.5rem;
-            margin-left: 5%;
             margin-bottom: 2.5%;
         }
 
@@ -174,16 +194,18 @@ if (have_posts()) :while (have_posts()) : the_post();
         <?php the_field("info__contact__direction") ?>
     </p>
     <p>
-        emai:<?php the_field("email__direction") ?>
+        Email : <?php the_field("email__direction") ?>
     </p>
     <p>
-        Directeur:<?php the_field("name__dirrecteur") ?>
+        Directeur : <?php the_field("name__dirrecteur") ?>
     </p>
     <p>
-        Coordinatrice:<?php the_field("name__coordinatrice") ?>
+        Coordinatrice : <?php the_field("name__coordinatrice") ?>
     </p>
     </div>
 </section>
+<section class="coordonnee__info">
+
 <h2 class="title__contacte__info" id="contacte">Nous contacter</h2>
 <form>
     <section class="contacte">
@@ -196,7 +218,7 @@ if (have_posts()) :while (have_posts()) : the_post();
 	        <?php endif; ?>
         </div>
         <div class="contate__type">
-            <label for="firstName">Prenom</label>
+            <label for="firstName">Prénom</label>
             <input type="text" id="firstName" name="firstName" placeholder="Prénom">
 	        <?php if(isset($errors['firstName'])): ?>
             <p class="field__error"><?= $errors['firstName']; ?></p>
@@ -205,7 +227,7 @@ if (have_posts()) :while (have_posts()) : the_post();
 
 
         <div class="contate__type">
-            <label for="email">email</label>
+            <label for="email">Email</label>
             <input type="text" id="email" name="email" placeholder="nom@gmail.com">
 	        <?php if(isset($errors['email'])): ?>
             <p class="field__error"><?= $errors['email']; ?></p>
@@ -249,6 +271,7 @@ if (have_posts()) :while (have_posts()) : the_post();
         <div><?php the_content() ?></div>
     </section>
 </form>
+</section>
 <?php
 
 endwhile;

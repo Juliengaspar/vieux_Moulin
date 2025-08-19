@@ -20,6 +20,7 @@ Template name: Template "vieux_moulin
             background-color: #BDFAEA;
             color: black;
             text-align: center;
+            margin-top: 6%;
         }
         .vieux__moulin__title{
             text-align: center;
@@ -32,6 +33,28 @@ Template name: Template "vieux_moulin
 
         }
 
+        .scroll__animation{
+            width: 10%;
+            height: auto;
+            margin: -1% auto;
+
+            animation: mouvement-vertical 2s ease-in-out infinite;
+
+            /* Pour un rendu plus net */
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+
+        @keyframes mouvement-vertical {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(10px); /* Ajustez cette valeur pour la hauteur du mouvement */
+            }
+        }
+
         .info__vieux__moulin>h2{
             font-size: 2.5rem;
             text-align: center;
@@ -41,14 +64,20 @@ Template name: Template "vieux_moulin
             font-weight: 800;
             text-shadow: 5px 5px 4px rgba(47,109,236,0.64);
         }
+        h2{
+            font-size: 2rem;
+        }
         .info__vieux__moulin>p{
             width: 70%;
-            margin: 2% auto;
+            margin: 5% auto;
         }
 
         .contacte__vieux__moulin{
+            width: 100%;
+
             margin: 5%;
-            display: flex;
+            display: grid;
+            grid-template-columns: auto auto;
         }
 
         .contacte__vieux__moulin>h3{
@@ -70,17 +99,33 @@ Template name: Template "vieux_moulin
             color: white;
             margin: 2% 5%;
         }
-        .contacte__vieux__moulin>img{
+        .button__vieux__moulin{
+            width: 200%;
+            font-size: 1rem;
+            padding: 0.5rem 0.2rem;
+            background-color: #0466F3;
+            color: white;
+            margin: 4% 0;
+            text-decoration: none;
         }
-        .maps{
+        .button__vieux__moulin:hover{
+            background-color: #003a83;
+        }
 
+        .people{
+            margin-left: 70%;
         }
-        .maps>img{
-            width: 80%;
-            margin: 0 10%;
+        .people>img{
             height: auto;
         }
-        .maps>a{
+        .maps__vieux__moulin{
+            margin: 5% auto;
+        }
+        .maps__vieux__moulin>img{
+            width: 100%;
+            height: auto;
+        }
+        .maps__vieux__moulin>a{
             background-color: #0466F3;
             color: white;
             margin: 10%;
@@ -88,49 +133,76 @@ Template name: Template "vieux_moulin
         }
 
         .autours__vieux__moulin{
-            margin-top: 5%;
-            display: grid;
+                margin: 10%;
+                display: grid;
             grid-template-columns: auto auto;
         }
         .autours__vieux__moulin>h2,
         .autours__vieux__moulin>p{
-            grid-column: 2;
             margin-top: 5%;
             margin-left: 5%;
         }
 
-
+        .environement__text {
+            grid-column: 2;
+        }
+        .environement__images{
+            grid-column: 1;
+            width: 125%;
+            height: auto;
+        }
         .picture__foret{
             grid-column: 1;
-            margin-top: -10%;
+            margin-top: -25%;
             width: 70%;
             height: auto;
-            margin-left: 25%;
+            margin-left: -15%;
         }
 
-        .vie__communautee{
-            margin: 5% 10%;
+
+        .communautees__tile{
+            margin-left: 5%;
+            font-size: 2rem;
         }
-        .vie__communautee>p{
-            margin: 5% 0;
-            line-height: 5vh;
+        .tous__texte__communautee{
+            margin: 5%;
+            width: 75%;
+            height: auto;
         }
+        #text__activitee{
+            margin: -5% 2.5%;
+        }
+        #tous__texte__communautee{
+            margin: 2% 2.5%;
+        }
+
         .slider-container {
             overflow: hidden;
             width: 100%;
-            background-color: #f8f8f8;
+            margin: 10% 0;
         }
 
         .slider-track {
             display: flex;
             width: fit-content;
             animation: scroll-left 20s linear infinite;
+            margin-bottom: -1%;
         }
 
         .slider-image {
             flex: 0 0 auto;
-            height: 150px; /* Choisis la hauteur souhaitée */
-            margin-right: 20px;
+            height: auto;
+            margin-right: 2%;
+        }
+        .galeries{
+            margin-right: 2%;
+            margin-bottom: 1%;
+
+        }
+        .galeries>img{
+            flex: 0 0 auto;
+            height: auto;
+            margin-right: 2%;
         }
 
         .slider-image img {
@@ -148,28 +220,60 @@ Template name: Template "vieux_moulin
                 transform: translateX(-50%);
             }
         }
-        .legend{
-            text-align: center;
-            font-style: italic;
-            color: #006DFF;
-        }
-        .button{
+
+
+        .button__activites{
             font-size: 1rem;
             background-color: #0466F3;
             color: white;
+            margin-top: 5%;
+            text-decoration:none;
+            padding: 1rem;
+            border-radius: 5px;
+            -webkit-box-shadow: 3px 5px 13px 3px rgba(0,0,0,0.23);
+            box-shadow: 3px 5px 13px 3px rgba(0,0,0,0.23)
         }
 
-        .button:hover{
+        .text__activitee{
+            margin: -5% auto;
+            width: 75%;
+        }
+        #citation{
+            text-align: center;
+            font-style: italic;
+            color: #006DFF;
+            margin: 2%  auto;
+        }
+        .button__vm{
+            font-size: 1rem;
+            background-color: #0466F3;
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            -webkit-box-shadow: 3px 5px 13px 3px rgba(0,0,0,0.23);
+            box-shadow: 3px 5px 13px 3px rgba(0,0,0,0.23);
+        }
+
+        #button__Edelweiss{
+            font-size: 1rem;
+            background-color: #0466F3;
+            color: white;
+            margin: 5% 2.5% 10% 2.5%;
+            padding: 1rem;
+            border-radius: 5px;
+            -webkit-box-shadow: 3px 5px 13px 3px rgba(0,0,0,0.23);
+            box-shadow: 3px 5px 13px 3px rgba(0,0,0,0.23);
+        }
+
+        .button__vm:hover,
+        #button__Edelweiss:hover{
             background-color: #003481;
         }
 
-        #button__contacte{
-            padding:  2% 5%;
-            margin: 5% 0;
-        }
+
         #button__maps{
             padding: 1% 5%;
-            margin-left: 2%;
+            margin-left: 3%;
         }
 
         .autours__vieux__moulin__text{
@@ -202,13 +306,15 @@ Template name: Template "vieux_moulin
             <img class="image__vieux__moulin"  src="<?php echo esc_url($image__vieux__moulin['url']); ?>" alt="<?php echo esc_attr($image__vieux__moulin['alt']); ?>">
         </div>
 	<?php endif; ?>
-    <?php get_template_part('partials/scroll'); ?>
+    <div class="scroll__animation">
+		<?php get_template_part('partials/scroll'); ?>
+    </div>
 
 </section>
 <section class="info__vieux__moulin">
-    <h2>Info</h2>
+    <h2></h2>
     <!--<p>Le Vieux Moulin est un Service Résidentiel Général qui accueille et héberge des enfants et adolescents de 0 à 18 ans, placés par les services d'aide et de protection de la jeunesse. Sa mission est d'assurer un cadre sécurisant et éducatif aux jeunes en difficulté, dont la santé, la sécurité ou les conditions de vie sont compromises en raison de leur situation ou de leur entourage. L'accompagnement repose sur une approche basée sur la confiance.</p>-->
-	<p>
+	<p class="citation__vieux__moulin">
     <?php the_field('description__home'); ?>
     </p>
     <section class="contacte__vieux__moulin">
@@ -217,16 +323,16 @@ Template name: Template "vieux_moulin
 	<p>
         <?php the_field('contact__directeur'); ?>
     </p>
-    <p>Email:<?php the_field('email__redirection__direction'); ?></p>
+    <p>Email:<span class="email__vieux__moulin"><?php the_field('email__redirection__direction'); ?></span></p>
          <p>
 
-             <a href="<?php echo esc_url(get_field('redirecton__page__contacte')); ?>" class="button" id="button__contacte">Nous envoyer un message</a>
+             <a href="<?php echo esc_url(get_field('redirecton__page__contacte')); ?>" class="button__vieux__moulin" id="button__contacte">Nous envoyer un message</a>
         </p>
         </div>
 	    <?php $icone = get_field('icone__people'); ?>
 	    <?php if ($icone): ?>
-        <div>
-        <img src="<?php echo esc_url($icone['url']); ?>" alt="<?php echo esc_attr($icone['alt']); ?>">
+        <div class="people">
+        <img class="images__people" src="<?php echo esc_url($icone['url']); ?>" alt="<?php echo esc_attr($icone['alt']); ?>">
         </div>
 	    <?php endif; ?>
     </section>
@@ -239,30 +345,35 @@ Template name: Template "vieux_moulin
 
 	if ($image__carte__vieux__moulin) :
 		?>
-        <div class="image" >
+        <div class="maps__vieux__moulin" >
             <img class="carte__vieux__moulin"  src="<?php echo esc_url($image__carte__vieux__moulin['url']); ?>" alt="<?php echo esc_attr($image__carte__vieux__moulin['alt']); ?>">
         </div>
 	<?php endif; ?>
-                <a href="<?php echo esc_url(get_field('redirection__page__maps')); ?>" class="button" id="button__maps">Voir sur maps</a>
+                <a href="<?php echo esc_url(get_field('redirection__page__maps')); ?>" class="button__vm" id="button__maps">Voir sur maps</a>
 
 </section>
 
 <section class="autours__vieux__moulin">
-    <h2>Environnement</h2>
-        <?php the_field('environement__home'); ?>
+    <div class="environement__text">
+    <h2 class="title__environement">Environnement</h2>
+
+    <p>
+        <?php the_field('environement__home'); ?>&nbsp;
+    </p>
+    </div>
 	<?php
 	$image__picture__foret = get_field('picture__foret');
 	// var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
 
 	if ($image__picture__foret) :
 		?>
-        <div class="image">
+        <div class="environement__images">
             <img class="picture__foret"  src="<?php echo esc_url($image__picture__foret['url']); ?>" alt="<?php echo esc_attr($image__picture__foret['alt']); ?>">
         </div>
 	<?php endif; ?>
 </section>
 <section class="vie__communautees">
-    <h2>La vie en communauté</h2>
+    <h2 class="communautees__tile">La vie en communauté</h2>
     <!--<p>Vivre en communauté n’est pas toujours facile, surtout lorsque l’adolescent traverse les bouleversements liés à son évolution.
         Tandis que les plus jeunes jouent et s’expriment bruyamment, l’adolescent cherche un espace où il peut se retrouver avec ses pairs en toute tranquillité.
 
@@ -270,9 +381,11 @@ Template name: Template "vieux_moulin
 
         La cuisine, véritable cœur de la maison, est un lieu de partage et d’échange où tous se retrouvent pour les repas, renforçant ainsi le lien communautaire.
          </p>-->
-    <p>
-        <?php get_field('vie__communautee'); ?>
+    <div class="tous__texte__communautee">
+    <p class="communautees__description" id="communautees__vie__description">
+        <?php the_field('vie__communautee'); ?>
     </p>
+    </div>
     <!--<div>
         <image src="">
     </div>-->
@@ -293,25 +406,32 @@ Template name: Template "vieux_moulin
         </div>
     </div>
     <!--<p >Le jeu ouvre toutes les portes. Pour un professionnel, il constitue la plus belle fenêtre d’observation de l’état psychique d’un enfant. Le jeu est aussi un moyen privilégié d’entrer en relation avec l’enfant, en particulier lorsque le lien avec l’adulte est fragile ou rompu.</p>-->
+    <div class="tous__texte__communautee" id="text__activitee">
     <p><?php the_field('vie__comunautee__part2') ?></p>
-    <p class="legend"><?php the_field('citation__vieux__moulin') ?></p>
-    <a href="<?php echo esc_url(get_field('redirecton__page__activitees')); ?>" class="button" id="button__Activitees">Parcourir nos activités et nos sorties</a>
+    <p class="legend" id="citation"><?php the_field('citation__vieux__moulin') ?></p>
+    <a href="<?php echo esc_url(get_field('redirecton__page__activitees')); ?>" class="button__activites" id="button__Activitees">Parcourir nos activités et nos sorties</a>
+    </div>
 
 
-    <div>
-        <p class="autours__vieux__moulin__text"><?php the_field('vie__comunautee') ?></p>
-        <div>
+    <div class="slider-container">
+        <div class="tous__texte__communautee" id="tous__texte__communautee">
+<!--        <p class="autours__vieux__moulin__text">--><?php //the_field('vie__comunautee') ?><!--</p>-->
+        </div>
+        <div class="slider-track">
 		    <?php
 		    $galeries__activitees = get_field('activitee__home');
 		    if ($galeries__activitees):
 			    foreach ($galeries__activitees as $galerie__activitee): ?>
-                    <img src="<?php echo $galerie__activitee['url']; ?>" alt="<?php echo $galerie__activitee['alt']; ?>">
+                <div class="galeries">
+                    <img class="galeries__activitees" src="<?php echo $galerie__activitee['url']; ?>" alt="<?php echo $galerie__activitee['alt']; ?>">
+                </div>
 			    <?php endforeach;
 		    endif;
 		    ?>
-        <a href="<?php echo esc_url(get_field('redirection____page__el')); ?>" class="button" id="button__Edelweiss">Aller vers Edelweiss</a>
-<!--	       /*?php var_dump(get_field('redirection____page__el')); ?>*/-->
+
+            <!--            --><?php //var_dump(get_field('redirection____page__el')); ?>
         </div>
+            <a href="<?php echo esc_url(get_field('redirection____page__el')); ?>" class="button__vm" id="button__Edelweiss">Aller vers Edelweiss</a>
     </div>
 </section>
 <?php

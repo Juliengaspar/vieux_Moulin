@@ -23,13 +23,36 @@ get_header();
                 text-shadow: 5px 5px 4px rgba(47,109,236,0.64);
                 padding: 5% 0;
             }
+
+            .icone__projet__educatif{
+                margin: 5% 30%;
+                width: 75%;
+                height: auto;
+
+            }
+
             .icone__projet__educatif>img {
-                margin: 5% 33%;
             }
             .scroll__animation{
                 width: 10%;
                 height: auto;
-                margin: auto;
+                margin: -1% auto;
+
+                animation: mouvement-vertical 2s ease-in-out infinite;
+
+                /* Pour un rendu plus net */
+                transform: translateZ(0);
+                backface-visibility: hidden;
+                perspective: 1000px;
+            }
+
+            @keyframes mouvement-vertical {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(10px); /* Ajustez cette valeur pour la hauteur du mouvement */
+                }
             }
             .title__sommaire{
                 font-size: 2rem;
@@ -212,13 +235,22 @@ get_header();
 				<a href="<?php echo esc_url($site_url__aide__jeunesse); ?>" hreflang="fr" lang="fr" target="_blank" class="redirection__administrations">Voir le site officiel</a>
 			<?php endif; ?>
 
-			<p><?php the_field("description__of__partenarias") ?></p>
 		</div>
 	</section>
 
 	<section class="logo__partenariats">
-		<h3 class="title__partenaria">Federation Walonnie Bruxelles</h3>
+		<h3 class="title__partenaria">Fédération Walonnie-Bruxelles</h3>
 		<div class="liste__logo__partenariats">
+            <?php
+            $image_activites__header = get_field('icone__activitee');
+
+            if ($image_activites__header) :
+                ?>
+                <div class="icone__activitee">
+                    <img src="<?php echo esc_url($image_activites__header['url']); ?>" alt="<?php echo esc_attr($image_activites__header['alt']); ?>" class="icone__people">
+                </div>
+            <?php endif; ?>
+
 			<?php
 			$logo_fw_bx = get_field('logo__Federation__W__BX');
 			//var_dump($logo_fw_bx); // temporaire pour voir ce qu'il y a dans le fichiers
@@ -231,7 +263,6 @@ get_header();
 			<?php endif; ?>
 
 			<div class="info__partenariats">
-				<p><?php the_field("description__logo__partenariats")?></p>
 				<?php $site_url = get_field("site__offciel__federation__wallonie__bruxelles"); ?>
 				<?php if ($site_url): ?>
 					<a href="<?php echo esc_url($site_url); ?>" hreflang="fr" lang="fr" target="_blank" class="redirection__administrations">Voir le site officiel</a>

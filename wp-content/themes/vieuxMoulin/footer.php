@@ -1,219 +1,205 @@
 <?php
-/*
-Template name: Template "footer"
-*/
 ?>
 
 
-<!doctype HTML>
-<html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible"
-          content="ie=edge">
-    <meta name="description" content="site web client fait sur wordpresse sur le vieux moulin de starichamps ">
-    <meta name="keywords" content="DW, Projet-web, Julien, Vieux moulin, formation hepl, "/>
-    <meta name="author" content="Julien Gaspar"/>
-         <link rel="stylesheet" href="./src/css/reset.css">
-		<link rel="stylesheet" href="./src/css/footer.css">
     <title>footer</title>
     <style>
-        footer{
+
+       footer{
             font-family: cavea, 'arial',sans-serif;
             background-color: #000000;
             color: #ffffff;
+
         }
-        .redirection__footer{
-            text-decoration: none;
-            color: white;
-            cursor: pointer;
-        }
-        .redirection__footer:hover{
-            border-bottom: 1px solid white;
-        }
-        .logo__partenaire{
-            width: 20%;
-            height: auto;
-        }
+
+       .footer__navigations{
+           display: flex;
+       }
+
+
         .logo_footer{
-            width: 10%;
+
+            width: 40%;
             height: auto;
-            margin: 5% 2%;
+            margin: 5%;
+            grid-column: 1;
         }
-        .footer__navigations{
+
+        #coordonees{
             display: flex;
-            padding: 2rem;
-
-        }
-        .coordonees{
-
+            margin: 5% auto;
         }
 
-        .navigation{
+
+        .footer__bloc{
             display: grid;
             grid-template-columns: auto auto auto;
-            grid-gap:5rem;
-        }
-        .logo__vieux__moulin{
-            width: 100%;
-            height: auto;
-            mmargin-left:5%;
+            grid-gap: 5rem;
+            
         }
 
-        h3{
-            font-size: 3rem;
-            margin: 0;
-        }
-        .navigation > ul{
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .navigation ul li {
-
+        .redirection__navigation{
+            width: 200%;
         }
 
-        .partenaires>div{
-            display: inline;
+        .redirection__navigation p{
+            width: auto;
         }
-        .partenaires>div>img{
-            width: 15%;
-            height: auto;
+        
+        .redirection__footer{
+            font-family: cavea, 'arial', sans-serif;
+            font-style: italic;
+            text-decoration: none;
+            color: white;
+        }
+         .redirection__footer:hover{
+             border-bottom: 1px solid white;
         }
 
-        .partenaires__title>p{
-
-        }
-        .logo__partenaire{
-            margin-left: 5%;
-        }
-        #federation__walonnie__bruxelle{
+       #federation__walonnie__bruxelle{
             margin-bottom: 5%;
         }
+
+       .partenaires{
+           margin: 5% 0;
+       }
+       .partenaires h3{
+           margin-left: 5%;
+       }
+
+       .partenaires .partenaires__logos{
+           margin 5% 25%;
+       }
+
+       .partearias__logo{
+           display: inline;
+
+       }
+
+       .partearias__logo img{
+           width: 15%;
+           height: auto;
+           margin:5%;
+       }
+
         .fotter__copyrinthe{
             background-color: #BDFAEA;
-            color: #000000;
             display: flex;
-            padding: 1rem;
-        }
-        .fotter__copyrinthe>h2{
-            margin: 2.5% 1%;
-        }
-        .fotter__copyrinthe>img{
-            width: 5%;
             height: auto;
-            margin-left: 60%;
 
         }
-        .fotter__copyrinthe__description>p{
+
+        .fotter__copyrinthe>h2{
+            margin: 2.5% 5%;
+        }
+        .fotter__copyrinthe__description{
             width: 200%;
             margin-left: 5%;
-            font-size: 1rem;
+            font-size: 0.8rem;
+            color: black;
+            max-width: 80%;
         }
-        .small__logo__vieux__moulin{
+
+       .small__logo__vieux__moulin {
             width: 10%;
             height: auto;
-            margin-left: 60%;
-        }
+           max-width: 60px;
+           display: block;
+       }
+
 
     </style>
 </head>
-<body>
+<?php
+$options_page = get_page_by_path('footer');
+?>
 
 <footer class="footer">
     <section class="footer__elements">
-        <h2 style="display:none;">Titre invisible</h2>
+        <h2 class="invisible" style="display:none;">Titre invisible</h2>
         <section class="footer__navigations">
-            <h3>Adresse</h3>
-	        <?php
-	        $image__logo__vieux__moulin = get_field('logo_vieux_moulin');
-            //var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+            <div>
+            <h3 class="invisible" style="display:none;">Titre invisible</h3>
+            <section class="footer__bloc" id="coordonees">
+                <?php
 
-	        if ($image__logo__vieux__moulin) :
-	        ?>
-            <div class="logo_footer">
-                <a href="<?php the_field("logo__redirection__aceuille"); ?>">
-               <img src="<?php echo esc_url($image__logo__vieux__moulin['url']); ?>" alt="<?php echo esc_attr($image__logo__vieux__moulin['alt']); ?>" class="logo__vieux__moulin">
-                </a>
-            </div>
-            <?php
-            endif;
-            ?>
-            <section class="coordonees">
-                <h4>Le vieux Moulin</h4>
-               <!-- <p>Strainchamps
-                    Rue Des Vennes, 1  6637 Fauvillers </p>-->
-                <p>
-                    <?php the_field("coordonee__vieux__moulin"); ?>
-                </p>
-            </section>
-            <nav class="navigation">
-                <ul class="redirection__navigation">
-                    <li><a  href="" class="redirection__footer">Qui sommes-nous ?</a></li>
-                    <li><a  href="<?php the_field("maisons__rediretion"); ?>" class="redirection__footer">Nos maisons</a></li>
-                    <li><a  href="<?php the_field("nos__valeurs__redirection"); ?>" class="redirection__footer">Nos valeurs</a></li>
-                    <li><a  href="<?php the_field("activitees__redirections"); ?>" class="redirection__footer">Le cadre</a></li>
-                    <li><a  href="<?php the_field("educatif__redirection"); ?>" class="redirection__footer">Projet éducatif</a></li>
-                </ul>
-                <ul class="redirection__navigation">
-                    <li><a href="<?php the_field("dons__rediection"); ?>" class="redirection__footer">
-                            nous aider
-                        </a></li>
-                </ul>
-                <ul class="redirection__navigation">
-                    <li>
-                        <a href="<?php the_field("contacte__redirections"); ?>" class="redirection__footer">
-                            Nous contacter
+                $image__logo__vieux__moulin = get_field('logo_vieux_moulin', $options_page->ID); // Notez le 'option' pour les options du thème
+
+                if ($image__logo__vieux__moulin) :
+                    ?>
+                    <div class="logo_footer">
+                        <a href="<?php echo esc_url(get_field("logo__redirection__aceuille", $options_page->ID)); ?>">
+                            <img src="<?php echo esc_url($image__logo__vieux__moulin['url']); ?>"
+                                 alt="<?php echo esc_attr($image__logo__vieux__moulin['alt']); ?>"
+                                 class="logo__vieux__moulin">
                         </a>
-                    </li>
-                </ul>
-            </nav>
+                    </div>
+                <?php endif; ?>
+                <div>
+                <h4 class="coordonees__title">Le vieux Moulin</h4>
+                <p><?php the_field("coordonee__vieux__moulin", $options_page->ID); ?></p>
+                </div>
+            <div class="footer__bloc" id="navigation">
+                <div class="redirection__navigation">
+                    <p><a href="" class="redirection__footer">Qui sommes-nous ?</a></p>
+                    <p><a href="<?php echo esc_url(get_field("maisons__rediretion", $options_page->ID)); ?>" class="redirection__footer">Nos maisons</a></p>
+                    <p><a href="<?php echo esc_url(get_field("nos__valeurs__redirection", $options_page->ID)); ?>" class="redirection__footer">Nos valeurs</a></p>
+                    <p><a href="<?php echo esc_url(get_field("activitees__redirections", $options_page->ID)); ?>" class="redirection__footer">Nos activités</a></p>
+                    <p><a href="<?php echo esc_url(get_field("educatif__redirection", $options_page->ID)); ?>" class="redirection__footer">Projet éducatif</a></p>
+                </div>
+                <div class="redirection__navigation">
+                    <p><a href="<?php echo esc_url(get_field("dons__rediection", $options_page->ID)); ?>" class="redirection__footer">nous aider</a></p>
+                </div>
+                <div class="redirection__navigation">
+                    <p><a href="<?php echo esc_url(get_field("contacte__redirections", $options_page->ID)); ?>" class="redirection__footer">Nous contacter</a></p>
+                </div>
+            </div>
+            </section>
         </section>
         <section class="partenaires">
-            <h3 class="partenaires__title">partenariats</h3>
-            <!--<image src="src/image/federation-wallonnie-bx-logo.png" alt="logo represenrant leurs partenaria qui les aides financiereement federation walonnie bruxelle " class="logo__partenaire" id="federation__walonnie__bruxelle">
-            <image src="src/image/aide-jeunesse-logo.png" alt="logo represenrant leurs partenaria qui les aides financiereement aide a la jeunesse" class="logo__partenaire" id="aide__a__la__jeunesse">-->
+            <h3 class="partenaires__title">Partenariats</h3>
+                <div class="partenaires__logos">
+                     <?php
+                     $image__logo__federation__walonie__bruxelle = get_field('logo__federation__walonie__bruxelle', $options_page->ID);
+                     if ($image__logo__federation__walonie__bruxelle) :
+                         ?>
+                         <div class= "partearias__logo" id="logo__federation__walonie__bruxelle">
+                             <img class="logo__partenaire" id="federation__walonie__bruxelle"
+                                  src="<?php echo esc_url($image__logo__federation__walonie__bruxelle['url']); ?>"
+                                  alt="<?php echo esc_attr($image__logo__federation__walonie__bruxelle['alt']); ?>">
+                         </div>
+                     <?php endif; ?>
+                     <?php
+                     $image__logo__aide__a__la__jeunesse = get_field('logo__aide__a__la__jeunesse', $options_page->ID);
+                     if ($image__logo__aide__a__la__jeunesse) :
+                         ?>
+                         <div class= "partearias__logo" id="logo__aide__a__la__jeunesse">
+                             <img class="logo__partenaire" id="aide__a__la__jeunesse"
+                                  src="<?php echo esc_url($image__logo__aide__a__la__jeunesse['url']); ?>"
+                                  alt="<?php echo esc_attr($image__logo__aide__a__la__jeunesse['alt']); ?>">
+                         </div>
+                     <?php endif; ?>
 
-	        <?php
-	        $image__logo__aide__a__la__jeunesse = get_field('logo__aide__a__la__jeunesse');
-	        // var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
-
-	        if ($image__logo__aide__a__la__jeunesse) :
-		        ?>
-                <div class="logo__aide__a__la__jeunesse">
-                    <img class="logo__partenaire" id="aide__a__la__jeunesse" src="<?php echo esc_url($image__logo__aide__a__la__jeunesse['url']); ?>" alt="<?php echo esc_attr($image__logo__aide__a__la__jeunesse['alt']); ?>">
                 </div>
-	        <?php endif; ?>
-            <?php
-	        $image__logo__federation__walonie__bruxelle = get_field('logo__federation__walonie__bruxelle');
-	        // var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
-
-	        if ($image__logo__federation__walonie__bruxelle) :
-		        ?>
-                <div class="logo__federation__walonie__bruxelle">
-                    <img class="logo__partenaire" id="federation__walonie__bruxelle" src="<?php echo esc_url($image__logo__federation__walonie__bruxelle['url']); ?>" alt="<?php echo esc_attr($image__logo__federation__walonie__bruxelle['alt']); ?>">
-                </div>
-	        <?php endif; ?>
 
         </section>
     </section>
     <section class="fotter__copyrinthe">
-        <h3 class="fotter__copyrinthe__description">
-        <?php the_field('description__copyright')?>
-        </h3>
-	    <?php
-	    $image__small__logo__vieux__moulin = get_field('small__logo__vieux__moulin');
-	    // var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+        <div class="fotter__copyrinthe__description">
+            <?php echo wp_kses_post(get_field('description__copyright', $options_page->ID)); ?>
+        </div>
 
-	    if ($image__small__logo__vieux__moulin) :
-		    ?>
-            <div class="logo__vieux__moulin" >
-                <img class="small__logo__vieux__moulin" id="small__vieux__moulin" src="<?php echo esc_url($image__small__logo__vieux__moulin['url']); ?>" alt="<?php echo esc_attr($image__small__logo__vieux__moulin['alt']); ?>">
+        <?php
+        $image__small__logo__vieux__moulin = get_field('small__logo__vieux__moulin', $options_page->ID);
+        if ($image__small__logo__vieux__moulin) :
+            ?>
+            <div class="logo__vieux__moulin__small">
+                <img class="small__logo__vieux__moulin" id="small__vieux__moulin"
+                     src="<?php echo esc_url($image__small__logo__vieux__moulin['url']); ?>"
+                     alt="<?php echo esc_attr($image__small__logo__vieux__moulin['alt']); ?>">
             </div>
-	    <?php endif; ?>
+        <?php endif; ?>
     </section>
 </footer>
-</body>
-</html>

@@ -19,6 +19,10 @@ footer{
 .coordonees{
 
 }
+.coordonees__title{
+    font-size: 2rem;
+
+}
 
 .navigation{
     display: grid;

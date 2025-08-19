@@ -29,21 +29,6 @@ add_action( 'wp_enqueue_scripts', function() {
 	// Remove inline global CSS on the front end.
 	wp_dequeue_style( 'global-styles' );
 }, 20 );
-//
-//add_theme_support('post-thumbnails', ['portfolio']);
-//register_post_type( string $post_type, array|string $args = array() ): WP_Post_Type|WP_Error
-//register_post_type('portfolio',[
-//	'label' => 'Portfolios',
-//	'description' => 'Mon portfolio pour mon projet pour le cours de design web',
-//	'menu_position' => 5,
-//	'menu_icon' => 'dashicons-portfolio',
-//	'public' => true,
-//	'has_archive' => true,
-//	'rewrite' => [
-//		'slug' => 'portfolios',
-//	],
-//	'supports' => ['title','excerpt','editor','thumbnail'],
-//]);
 function mon_vieuxMoulin_styles() {
 	// 1. Fichier reset.css pour toutes les pages
 	wp_enqueue_style('reset-css', get_template_directory_uri() . '/src/css/reset.css' , [], time());
@@ -112,17 +97,13 @@ function dw_get_navigation_links(string $location): array
 
 	return $links;
 }
-if( function_exists('acf_add_options_page') ) {
-	acf_add_options_page();
-}
-// Activer la page d'options ACF
 if (function_exists('acf_add_options_page')) {
 	acf_add_options_page(array(
-		'page_title' => 'Options du site',
-		'menu_title' => 'Options du site',
-		'menu_slug'  => 'theme-options',
+		'page_title' => 'Options du thème',
+		'menu_title' => 'Options du thème',
+		'menu_slug' => 'theme-options',
 		'capability' => 'edit_posts',
-		'redirect'   => false
+		'redirect' => false
 	));
 }
 

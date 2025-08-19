@@ -11,43 +11,85 @@ Template Name: Template "activités"
             background-color: #BDFAEA;
         }
         .title__page>h1{
-            margin:5% 50%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            padding: 2% 0;
+            font-size: 5rem;
+            text-shadow: 5px 5px 4px rgba(47,109,236,0.64);
+            font-style: italic;
+            text-align: center;
         }
         .title__page>.icone__activitee{
-            margin:5% 50%;
-
+            margin:5% 45%;
+        }
+        .icone__activitee>img{
+            width: auto;
+            height: auto;
         }
         .scroll__animation{
             width: 10%;
             height: auto;
-            margin: auto;
+            margin: -1% auto;
+
+            animation: mouvement-vertical 2s ease-in-out infinite;
+
+            /* Pour un rendu plus net */
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
         }
 
+        @keyframes mouvement-vertical {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(10px); /* Ajustez cette valeur pour la hauteur du mouvement */
+            }
+        }
+        .liste__projets{
+            max-width: 1000px;
+            width: 100%;
+            margin: auto;
+            padding: 10px;
+        }
+
+        .projet{
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+
+    .picture_voyage>img,
+    .image-activitee>img{
+        width: 150px; /* Largeur fixe pour toutes les images */
+        height: auto; /* Hauteur proportionnelle */
+        object-fit: cover; /* Pour conserver les proportions */
+    }
         .activitees>h2,
         .activitees>p{
             margin-left: 15%;
+            flex: 1;
         }
         .activitees>h2{
             font-size: 2rem;
             font-style: italic;
             font-weight: 700;
         }
-    .picture_voyage>img,
-    .image-activitee>img{
-        height: auto;
-        width: 50%;
-    }
 
-        .redirection{
-            background-color: #BDFAEA;
-            color: black;
+        .redirection__activitees{
+            background-color: #0466F3;
+            color: white;
             text-decoration: none;
             padding: 2%;
-            margin-bottom: 5%;
+            margin: 2%;
             -webkit-box-shadow: 5px 5px 12px 6px rgba(0,0,0,0.25);
             box-shadow: 5px 5px 12px 6px rgba(0,0,0,0.25);
+
+            
         }
-        .redirection:hover{
+        .redirection__activitees:hover{
             background-color: #2a688f;
             color: white;
         }
@@ -61,7 +103,7 @@ Template Name: Template "activités"
 </head>
 <body>
 <section class="title__page">
-    <h1>Activités</h1>
+    <h1>Nos activités</h1>
     <!-- Image d'introduction -->
 	<?php
 	$image_activites__header = get_field('icone__activitee');
@@ -69,7 +111,7 @@ Template Name: Template "activités"
 	if ($image_activites__header) :
 		?>
         <div class="icone__activitee">
-            <img src="<?php echo esc_url($image_activites__header['url']); ?>" alt="<?php echo esc_attr($image_activites__header['alt']); ?>">
+            <img src="<?php echo esc_url($image_activites__header['url']); ?>" alt="<?php echo esc_attr($image_activites__header['alt']); ?>" class="icone__people">
         </div>
 	<?php endif; ?>
     <p style="margin-top: 20px;"></p>
@@ -103,10 +145,10 @@ Template Name: Template "activités"
     <p><?php the_field("description__page__activitee"); ?></p>
 
 	<?php if (have_rows('activites')) : ?>
-        <section class="liste__projets" style="max-width: 1000px; margin: auto; padding: 20px;">
+        <section class="liste__projets">
 			<?php while (have_rows('activites')) : the_row(); ?>
-                <section class="projet">
-                    <div class="activitees__listes" style="display: flex; align-items: flex-start; margin-bottom: 40px; gap: 20px;">	                    <?php
+                <section class="projet" id="activites__listes">
+                    <?php
 	                    $image_activites = get_sub_field('image-activitee');
 	                    if ($image_activites) :
 		                    ?>
@@ -114,9 +156,10 @@ Template Name: Template "activités"
                                 <img src="<?php echo esc_url($image_activites['url']); ?>" alt="<?php echo esc_attr($image_activites['alt']); ?>">
                             </div>
 	                    <?php endif; ?>
-                    </div>
+                    <section>
                     <h3><?php the_sub_field('title__activitee'); ?></h3>
                     <p><?php the_sub_field('description-actvitee'); ?></p>
+                    </section>
                 </section>
 			<?php endwhile; ?>
         </section>
@@ -140,14 +183,14 @@ Template Name: Template "activités"
     </section>-->
 </section>
 <section class="activitees">
-    <h2>Des sorties Incroyables pour s’amuser</h2>
+    <h2>Des sorties incroyables pour s’amuser</h2>
     <p>Aux Vieux Moulins, on part en excursion pour découvrir de nouveaux endroits et passer des journées inoubliables !</p>
     <p><?php the_sub_field('voyages__description') ?></p>
     <!-- VOYAGES (RÉPÉTEUR) -->
 	<?php if (have_rows('voyages')): ?>
-        <section style="max-width: 1000px; margin: auto; padding: 20px;">
+        <section class="liste__projets">
 			<?php while (have_rows('voyages')): the_row(); ?>
-                <section class="voyages__listes" style="display: flex; align-items: flex-start; margin-bottom: 40px; gap: 20px;">
+                <section  class="projet" id="voyages__listes" style="display: flex; align-items: flex-start; margin-bottom: 40px; gap: 20px;">
 	                <?php
 	                $image_voyages = get_sub_field('picture_voyage');
 	                if ($image_voyages) :
@@ -195,7 +238,7 @@ Template Name: Template "activités"
         </div>
     </section>-->
     <div class="link__navigations">
-<a href="<?php the_field("link__button")?>" class="redirection">Nous aider à faire plus d’activités</a>
+<a href="<?php the_field("link__button")?>" class="redirection__activitees">Nous aider à faire plus d’activités</a>
     </div>
 </section>
 <?php get_footer(); ?>

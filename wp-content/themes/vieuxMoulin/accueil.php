@@ -19,13 +19,17 @@ Template name: Template "accueil
         margin-top: 5%;
         margin-bottom: 5%;
         padding: 2% 0;
-        font-size: 3rem;
+        font-size: 5rem;
         text-shadow: 5px 5px 4px rgba(47,109,236,0.64);
         font-style: italic;
     }
 
     .welcome__page>img{
-        margin-left: 60%;
+        float: right;
+        margin-left: 20px; /* optionnel : pour éviter que le texte colle à l'image */
+        max-width: 100%;
+        height: auto;
+        margin-top: 2.5%;
     }
 
     .welcome__page>p{
@@ -39,17 +43,45 @@ Template name: Template "accueil
     header>p:last-of-type{
         margin-top: 1%;
     }
+
+    .img__Vieux__moulin{
+    }
+    .img__Vieux__moulin>img{
+        width: 100%;
+        height: auto;
+        margin-top: -5%;
+    }
+    .titile__contenus{
+        font-weight: 100;
+        width: 61%;
+    }
     h2{
         text-align: center;
         font-size: 2rem;
-        width: 50%;
         margin: 0 25%;
     }
     .scroll__animation{
         width: 10%;
         height: auto;
-        margin: auto;
+        margin: -1% auto;
+
+    animation: mouvement-vertical 2s ease-in-out infinite;
+
+    /* Pour un rendu plus net */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
     }
+
+    @keyframes mouvement-vertical {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(10px); /* Ajustez cette valeur pour la hauteur du mouvement */
+        }
+    }
+
 
     .image_contenu>img{
         width: 75%;
@@ -60,6 +92,12 @@ Template name: Template "accueil
         font-size: 1.5rem;
     }
 
+    .image-text-section{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        margin: 5% auto;
+    }
 
     .about__vieux__moulin>div:first-of-type,
     .about__vieux__moulin>a{
@@ -70,7 +108,9 @@ Template name: Template "accueil
         margin-bottom: 2%;
     }
 
-
+    .text__page{
+        text-align: left;
+    }
     .about__vieux__moulin>div>a{
         background-color: #006EFE;
         color: white;
@@ -97,9 +137,7 @@ Template name: Template "accueil
 		?>
         <div class="welcome__page">
             <img src="<?php echo esc_url($image_welcome['url']); ?>" alt="<?php echo esc_attr($image_welcome['alt']); ?>" class="header__background">
-	<?php if (get_field('description__page')) : ?>
             <p class="header__text"><?php the_field('description__page'); ?></p>
-	<?php endif; ?>
         </div>
 	<?php endif; ?>
 
@@ -109,20 +147,19 @@ Template name: Template "accueil
 
 </section>
 <section>
-	<h2 style="display: none">test invisible</h2>
-<?php
-$image_maison = get_field('img__Vieux__moulin');
-    // var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
+	<h2 style="display: none;">text invisible</h2>
+    <!-- Image d'introduction -->
+    <!-- Image d'introduction -->
+	<?php
+	$image_vieux__moulin = get_field('vieux__moulin');
+	// var_dump($image_vieux__moulin); // temporaire pour voir ce qu'il y a dans le fichiers
 
-    if ($image_maison) :
-    ?>
-    <div class="img__Vieux__moulin">
-        <img src="<?php echo esc_url($image_maison['url']); ?>" alt="<?php echo esc_attr($image_welcome['alt']); ?>" class="header__background">
-    </div>
-    <?php
-    endif;
-    ?>
-
+	if ($image_vieux__moulin) :
+		?>
+        <div class="img__Vieux__moulin">
+            <img src="<?php echo esc_url($image_vieux__moulin['url']); ?>" alt="<?php echo esc_attr($image_vieux__moulin['alt']); ?>"  class="header__background" id="img__Vieux__moulin">
+        </div>
+	<?php endif; ?>
     <!-- Image d'introduction -->
 </section>
 <section class="center-title" style="text-align: center; margin: 60px 0 20px;">
@@ -135,7 +172,7 @@ $image_maison = get_field('img__Vieux__moulin');
 		un véritable foyer pour grandir et se reconstruire.</h2>
 	<p></p>
 	<image src="">-->
-    <div class="image-text-section" style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px; max-width: 1000px; margin: auto;">
+    <div class="image-text-section" style="">
         <div class="image" style="flex: 1;">
             <!-- Image d'introduction -->
 	        <?php
@@ -151,7 +188,7 @@ $image_maison = get_field('img__Vieux__moulin');
         </div>
 
 
-        <div class="text" style="flex: 1;">
+        <div class="text__page" style="flex: 1;">
 	        <?php if (get_field('contenus__page')) : ?>
                 <p class="contenus__page"><?php the_field('contenus__page'); ?></p>
 	        <?php endif; ?>
@@ -161,6 +198,6 @@ $image_maison = get_field('img__Vieux__moulin');
 <?php
 endwhile;
 endif;
-get_footer();
 ?>
-</body>
+<?php
+get_footer();

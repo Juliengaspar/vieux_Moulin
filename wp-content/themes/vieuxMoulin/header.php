@@ -1,7 +1,4 @@
 <?php
-/*
-Template Name: header
-*/
 ?>
 <!doctype html>
 <html lang="fr" <?php language_attributes(); ?>>
@@ -19,24 +16,35 @@ Template Name: header
     <link rel="icon" type="image/png" sizes="32x32" href="./src/image/icones/vieux__moulin__icone__medium.png">
     <link rel="icon" type="image/png" sizes="162x162" href="./src/image/icones/vieux__moulin__icone__large.png">
     <style>
-        .header__description{
-            background-color: #ffffff;
-        }
-        .navigation__pricipal{
-            margin: 0 15%;
-        }
-        a{
+
+
+        .redirection__header {
             text-decoration: none;
             color: black;
-            font-size: 3rem;
+            font-size: 2rem;
+            margin: 0 -15%;
             font-style: italic;
         }
-        a:hover{
+        .sous-menu .redirection__header{
+            font-size: 1.5rem;
+        }
+
+        .logo_header{
+            width: 70%;
+            height: auto;
+            float: left;
+        }
+
+        .last__li:last-of-type{
+            margin-left: 5%;
+        }
+
+        .redirection__header:hover{
             border-bottom: 1px solid black;
         }
         .redirections>.redirection__vieux_moulin{
             display: inline;
-            margin: 0 0 5% 5%;
+            margin: 0 0 5% 2.5%;
             font-size: 3rem;
             align-items: baseline;
             width: auto;
@@ -72,7 +80,6 @@ Template Name: header
 
         .menu a {
             text-decoration: none;
-            padding: 10px 15px;
             display: block;
             transition: background 0.3s ease;
         }
@@ -85,16 +92,12 @@ Template Name: header
         .sous-menu {
             display: none;
             position: absolute;
-            top: 100%;
-            left: 0;
-            min-width: 200px;
             z-index: 1000;
-            border-radius: 5px;
-            overflow: hidden;
+            list-style: none;
+
         }
 
         .sous-menu li {
-            width: 100%;
         }
 
         .menu-deroulant:hover .sous-menu {
@@ -104,7 +107,10 @@ Template Name: header
     </style>
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<?php
+    $options_page = get_page_by_path('header');
+?>
 
 <header class="header">
 
@@ -114,7 +120,7 @@ Template Name: header
         <ul class="menu">
             <li>
 	            <?php
-	            $image__logo__vieux__moulin__header = get_field('logo_image');
+	            $image__logo__vieux__moulin__header = get_field('logo_image', $options_page->ID);
 	            //var_dump($image); // temporaire pour voir ce qu'il y a dans le fichiers
 
 	            if ($image__logo__vieux__moulin__header) :
@@ -129,16 +135,20 @@ Template Name: header
 	            ?>
             </li>
             <li class="menu-deroulant">
-                <a href="#">Qui sommes-nous</a>
-                <ul class="sous-menu">
-                    <li><a href="<?php the_field('lien_maison'); ?>">Nos maisons</a></li>
-                    <li><a href="<?php the_field('lien_valeurs'); ?>">Nos valeurs</a></li>
-                    <li><a href="<?php the_field('lien_activites'); ?>">Nos activités</a></li>
-                    <li><a href="<?php the_field('lien_projet_educatif'); ?>">Projet éducatif</a></li>
-                </ul>
+                <a href="#"  class="redirection__header">Qui sommes-nous?</a>
+                <div class="sous-menu">
+                    <p><a href="<?php echo esc_url(get_field("lien_maison", $options_page->ID))?>" class="redirection__header">&nbsp;Nos maisons</a></p>
+                    <p><a href="<?php echo esc_url(get_field("lien_valeurs", $options_page->ID))?>" class="redirection__header">&nbsp;Nos valeurs</a></p>
+                    <p><a href="<?php echo esc_url(get_field("lien_activites", $options_page->ID))?>" class="redirection__header">&nbsp;Nos activités</a></p>
+                    <p><a href="<?php echo esc_url(get_field("lien_projet_educatif", $options_page->ID))?>" class="redirection__header">&nbsp;Projet éducatif</a></p>
+                </div>
             </li>
-            <li><a href="<?php the_field('lien_dons'); ?>">Nous aider</a></li>
-            <li><a href="<?php the_field('lien_contact'); ?>">Nous contacter</a></li>
+            <li><a href="<?php echo esc_url(get_field("bouton_1_lien", $options_page->ID))?>" class="redirection__header"><?php the_field("bouton_1_texte", $options_page->ID)?></a></li>
+            <li class="last__li"><a href="<?php echo esc_url(get_field("bouton_2_lien", $options_page->ID))?>" class="redirection__header"><?php the_field("bouton_2_texte", $options_page->ID)?></a></li>
         </ul>
     </nav>
 </header>
+<?php
+endwhile;
+endif;
+?>

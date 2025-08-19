@@ -1,6 +1,5 @@
 <!-- partials/scroll.php -->
 <div class="scroll-indicator">
-	<p class="scroll-text">Scrool</p>
 <svg id="Vieux__moulin__scrool" data-name="Vieux__moulin__scrool" class="scroll-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 130">
     <defs>
         <style>
