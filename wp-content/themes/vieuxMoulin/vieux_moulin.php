@@ -13,6 +13,13 @@ Template name: Template "vieux_moulin
             background-color: white;
             font-size: 16px;
         }
+        body, a, button {
+            cursor: url('src/image/icones/vieux__moulin__icone__small.png'), auto;
+        }
+
+        a:hover, button:hover {
+            cursor: url('src/image/icones/vieux__moulin__icone__small.png'), pointer;
+        }
         a{
             cursor: pointer;
         }
@@ -186,7 +193,7 @@ Template name: Template "vieux_moulin
             display: flex;
             width: fit-content;
             animation: scroll-left 20s linear infinite;
-            margin-bottom: -1%;
+            margin-bottom: 5%;
         }
 
         .slider-image {
